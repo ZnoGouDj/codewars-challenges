@@ -1,0 +1,19 @@
+{
+  "name": "count-by-x",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZnoGouDj/count-by-x.git"
+  },
+  "author": "Znogoud",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZnoGouDj/count-by-x/issues"
+  },
+  "homepage": "https://github.com/ZnoGouDj/count-by-x#readme"
+}
