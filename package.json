@@ -1,5 +1,5 @@
 {
-  "name": "count-by-x",
+  "name": "codewars-challenges",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ZnoGouDj/count-by-x.git"
+    "url": "git+https://github.com/ZnoGouDj/codewars-challenges.git"
   },
   "author": "Znogoud",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ZnoGouDj/count-by-x/issues"
+    "url": "https://github.com/ZnoGouDj/codewars-challenges/issues"
   },
-  "homepage": "https://github.com/ZnoGouDj/count-by-x#readme"
+  "homepage": "https://github.com/ZnoGouDj/codewars-challenges#readme"
 }
