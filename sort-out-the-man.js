@@ -15,11 +15,11 @@ function menFromBoys(arr) {
         return b - a
     })
     let result = evenNum.concat(oddNum);
-    let newResult = [];
-    if (newResult.indexOf(result[i]) === -1) {
-        newResult.push(arr[i]);
-    }
-    return newResult;
+    let uniq = result.reduce(function(a,b){
+        if (a.indexOf(b) < 0 ) a.push(b);
+        return a;
+      },[]);
+    return uniq;
 }
 
 //menFromBoys([7,3,14,17])
