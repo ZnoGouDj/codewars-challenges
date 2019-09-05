@@ -9,3 +9,16 @@ Return value as boolean values, true for the string to contains "English", false
 */
 
 const spEng = (sentence) => sentence.toLowerCase().indexOf('english') > -1;
+
+//another
+
+function spEng(s){
+    return /english/i.test(s)
+ }
+
+ //another
+
+ function spEng(sentence){
+    let sentenceLower = sentence.toLowerCase();
+    return sentenceLower.includes('english');
+  }
