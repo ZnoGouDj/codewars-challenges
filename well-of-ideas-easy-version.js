@@ -10,10 +10,31 @@ well(['good', 'bad', 'bad', 'bad', 'bad']), 'Publish!');
 well(['good', 'bad', 'bad', 'bad', 'bad', 'good', 'bad', 'bad', 'good']), 'I smell a series!');
 */
 
-function well(x){
+function well(x) {
     let counter = 0;
     for (let i = 0; i < x.length; i++) {
-       return x[i] === 'good' ? counter += 1 : false; 
+        x[i] === 'good' ? counter += 1 : counter += 0;
     }
-        return counter === 0 ? 'Fail!' : counter <= 2 ? 'Publish!' : 'I smell a series!';
+    if (counter === 0) {
+        return ('Fail!');
+    } else if (counter <= 2) {
+        return ('Publish!');
+    } else {
+        return ('I smell a series!');
+    }
 }
+
+//another
+
+const well = x => {
+    const good_count = x.filter(x => x == 'good').length;
+    return good_count < 1 ? 'Fail!' : 
+           good_count < 3 ? 'Publish!' : 'I smell a series!';
+  }
+
+  //another
+
+  function well(x) {
+    const count = x.reduce((s, v) => s + (v == 'good'), 0);
+    return count ? count > 2 ? 'I smell a series!' : 'Publish!' : 'Fail!';
+  }
