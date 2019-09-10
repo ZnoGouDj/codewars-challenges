@@ -27,14 +27,16 @@ partsSums([1,2,3,4,5,6])
 */
 
 function partsSums(ls) {
+    let newArr = [];
     for (let i = 0; i < ls.length;) {
         let sum = ls.reduce(function (previousValue, value) {
             return previousValue + value;
         });
-        console.log(sum);
+        newArr.push(sum);
         ls.shift();
     }
-    console.log(0); //lol
+    newArr.push(0);
+    return newArr;
 }
 
 function partsSums(ls) {

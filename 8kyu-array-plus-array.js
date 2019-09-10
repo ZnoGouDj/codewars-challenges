@@ -21,3 +21,26 @@ function arrayPlusArray(arr1, arr2) {
     return sum;
 }
 
+//не работает (верхнее)
+
+//top 
+
+function arrayPlusArray(arr1, arr2) {
+    return arr1.concat(arr2).reduce((acc, cur) => acc + cur);
+}
+
+//похожее на мое
+
+function arrayPlusArray() {
+    var res = 0;
+
+    for (var i = 0; i < arguments.length; i++) {
+
+        for (var j = 0; j < arguments[i].length; j++) {
+
+            res += arguments[i][j];
+        }
+    }
+    return res;
+}
+
