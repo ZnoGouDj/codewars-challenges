@@ -24,15 +24,34 @@ let sum = sequence(10, (x, idx) => idx+1).reduce((sum, num) => sum + num);
 Be careful with long sequences. They are just arrays, every element is created when function is called.
 
 For lazy sequences (elements created when needed) use Iterator.
+
+*Ну тебе на вход приходит функция
+Чтобы получить результат - ты вызываешь функциию с двумя аргументами
+Первый арг - значение, которое тебе дают первым аргументом
+Второе - индекс в массиве
+Думай об этом как об Array.map
+Вот ты передаешь в мап функцию
+Первый арг этой функции - элемент, который ты оьрабаытваешь
+Второй - его индекс
+По факту, у тебя тут будет цепочка
+fn sequence (x, generator) =>
+Если generator - функция, то чтобы получить i'й элемент, ты вызываешь generator с аргументами какими то
+Второй аргумент генератора - это индекс элемента
+Первый - хз
+Не понятно из описания
+Читай условие задачи
 */
 
 function sequence(n, pattern) {
-    let newArr = [];
-    for (let i = 0; i < n; i++) {
-        if (typeof pattern === 'function') {
-            newArr.push()
-        }
-        newArr.push(pattern);
+    const array = Array.from({ length: n });
+    if (typeof pattern === 'function') {
+        return array.map(pattern);
     }
-    return newArr;
+    return array.map(x => x = pattern);
+}
+
+//top
+
+function sequence(n, pattern) {
+    return Array.from({ length: n }, typeof pattern === "function" ? pattern : () => pattern)
 }
