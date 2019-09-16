@@ -47,7 +47,7 @@ function sequence(n, pattern) {
     if (typeof pattern === 'function') {
         return array.map(pattern);
     }
-    return array.map(x => x = pattern);
+    return array.map(x => pattern);
 }
 
 //top
