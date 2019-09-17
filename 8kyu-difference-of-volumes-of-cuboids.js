@@ -25,3 +25,19 @@ function findDifference(a, b) {
     return cube1 >= cube2 ? cube1 - cube2 : -(cube1 - cube2);
 }
 
+//top
+
+function find_difference(a, b) {
+    return Math.abs(a.reduce((previous, current) => previous * current) - b.reduce((previous, current) => previous * current));
+}
+
+//lol
+
+function find_difference(a, b) {
+    return Math.abs(a[0] * a[1] * a[2] - b[0] * b[1] * b[2]);
+}
+//another
+function find_difference([a, b, c], [d, e, f]) {
+    return Math.abs(a * b * c - d * e * f)
+}
+
