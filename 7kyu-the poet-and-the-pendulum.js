@@ -60,5 +60,24 @@
 // (n-1)/2 index (considering that indexes start from 0) .
 
 function pendulum(values) {
-    return [] // Do your magic!
+
+    let sort = values.slice().sort((a, b) => a - b)
+        , parts = { left: [], right: [] };
+
+    for (let i = 0; i < sort.length; i++)
+        parts[i % 2 ? 'right' : 'left'].push(sort[i]);
+
+    return parts.left.reverse().concat(parts.right);
+
+}
+
+//top2
+
+const pendulum = values => {
+    const arrSort = values.sort((a, b) => a - b)
+    const result = []
+    for (let i = 0; i < values.length; i++) {
+        i % 2 === 0 ? result.unshift(arrSort[i]) : result.push(arrSort[i])
+    }
+    return result;
 }
