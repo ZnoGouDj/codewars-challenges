@@ -45,12 +45,6 @@
 // Test.assertEquals(sumsum(8), 576)
 // Test.assertEquals(sumin(15), 1240)
 
-function sumin(n) {
-    // your code
-}
-function sumax(n) {
-    // your code
-}
-function sumsum(n) {
-    // your code
-}
+let sumin = n => n * n * n / 3 + n * n / 2 + n / 6;
+let sumax = n => n * (n + 1) * (4 * n - 1) / 6;
+let sumsum = n => n * n * n + n * n;
