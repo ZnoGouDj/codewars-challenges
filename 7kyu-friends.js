@@ -33,6 +33,33 @@
 // assert.strictEqual(friends(1), 0);
 // assert.strictEqual(friends(2), 0);
 
+
+// didn't finish this kata, so top 1 is:
+
+function friends(n, acc = 0) {
+    if (n <= 2) {
+        return acc;
+    } else {
+        return friends(n / 2, acc + 1)
+    }
+}
+
+//top 2
+
 function friends(n) {
-    //Your code goes here
+    let count = 0
+    if (n <= 2) { return count; }
+    if (n > 2) {
+        while (n > 2) {
+            n /= 2;
+            count++;
+        }
+        return count;
+    }
+}
+
+//diff
+function friends(n) {
+    if (n <= 2) { return 0 }
+    return Math.floor(Math.log(n - 1) / Math.log(2))
 }
