@@ -12,5 +12,9 @@ Test.expect(createMessage("Hello")("World!")("how")("are")("you?")(), "Hello Wor
 */
 
 function createMessage() {
-    //...
+  let arr = [];
+    for (let i = 0; i < this.length; i++) {
+      arr.push(this[i]);
+    }
+    return arr.toString;
   }
