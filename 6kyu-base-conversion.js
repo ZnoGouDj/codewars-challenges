@@ -57,29 +57,38 @@
 // Test.assertEquals(convert("1010", bin, hex), 'a', '"1010" bin -> hex');
 
 function convert(input, source, target) {
-
-    const Alphabet = {
-        BINARY:        '01',
-        OCTAL:         '01234567',
-        DECIMAL:       '0123456789',
-        HEXA_DECIMAL:  '0123456789abcdef',
-        ALPHA_LOWER:   'abcdefghijklmnopqrstuvwxyz',
-        ALPHA_UPPER:   'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-        ALPHA:         'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
-        ALPHA_NUMERIC: '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-      };
-
-    if (source === BINARY) { binary(input, target); }
-    if (source === OCTAL) { octal(input, target); }
-    if (source === DECIMAL) { decimal(input, target); }
-    if (source === HEXA_DECIMAL) { hexaDecimal(input, target); }
-    if (source === ALPHA_LOWER) { alLow(input, target); }
-    if (source === ALPHA_UPPER) { alUp(input, target); }
-    if (source === ALPHA) { alpha(input, target); }
-    if (source === ALPHA_NUMERIC) { alNum(input, target); }
-
+  
+  if (source === target) {
+    return input;
   }
 
-  function alLow(input, target) { 
-      
+  let srcLen = source.length;
+  let tgtLen = target.length;
+
+  if (source.length === target.length) {
+    let output = [];
+    for (let i in input) {
+      let char = input.charAt(i);
+      let srcIndex = source.indexOf(char);
+      output.push(target.charAt(srcIndex));
+    }
+    return output.join("");
   }
+
+  let value = 0;
+  for (let i = 0, len = input.length; i < len; i++) {
+    let char = input.charAt(len - i - 1);
+    let srcIndex = source.indexOf(char);
+    value += Math.pow(source.length, i) * srcIndex;
+  }
+
+  let tgtValues = [];
+  do {
+    let tgtIndex = value % target.length;
+    value = Math.floor(value / target.length);
+    tgtValues.push(target.charAt(tgtIndex));
+  } while (value > 0);
+
+  return tgtValues.reverse().join("");
+
+}

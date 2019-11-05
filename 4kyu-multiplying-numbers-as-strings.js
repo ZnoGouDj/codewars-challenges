@@ -19,3 +19,31 @@
 function multiply(a, b){
     return BigInt(a)*BigInt(b);
 } //doesn`t work in codewars 
+
+function multiply(a, b) {
+    a = a.split("").map(Number).reverse();
+    b = b.split("").map(Number).reverse();
+    if (!a.length) {
+        a[0] = 0;
+    }
+    if (!b.length) {
+        b[0] = 0;
+    }
+    let arr = [];
+    b.forEach((f1, i1) => {
+        a.forEach((f2, i2) => {
+            arr[i1 + i2] = arr[i1 + i2] || [];
+            arr[i1 + i2].push(f1 * f2);
+        })
+    })
+    arr.forEach((e, i) => {
+        let sum = e.reduce((a, c) => a + c)
+        arr[i] = sum % 10
+        let carry = Math.floor(sum / 10)
+        if (carry) {
+            arr[i + 1] = arr[i + 1] || [];
+            arr[i + 1].push(carry);
+        }
+    })
+    return arr.reverse().join("").replace(/^0+/, '') || "0"
+}
