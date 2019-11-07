@@ -22,11 +22,11 @@ function partitionOn(pred, items) {
     let fArray = [];
     let tArray = [];
     items.forEach(function (el) {
-        if (pred(el)) { 
-            tArray.push(el); 
+        if (pred(el)) {
+            tArray.push(el);
         }
-        else { 
-            fArray.push(el); 
+        else {
+            fArray.push(el);
         }
     });
     items = fArray.concat(tArray);
@@ -40,14 +40,81 @@ function partitionOn(pred, items) {
 
     var pFalse = [];
 
-    items.forEach( function(value) {
+    items.forEach(function (value) {
 
-    if (pred(value)) { pTrue.push(value);}
+        if (pred(value)) { pTrue.push(value); }
 
-    else {pFalse.push(value);}});
+        else { pFalse.push(value); }
+    });
 
     items = pFalse.concat(pTrue);
 
     return pTrue.length, items;
 
+}
+
+//new
+function partitionOn(pred, items) {
+    pFalse = []; pTrue = [];
+    for (let i = 0; i < items.length; ++i) {
+        if (pred(items[i])) {
+            pTrue.push(items[i]);
+        } pFalse.push(items[i]);
     }
+    for (let j = 0; j < pFalse.length; ++j) {
+        items[j] = pFalse[j];
+    }
+    for (let k = 0; k < pTrue.length; ++k) {
+        items[k + pFalse.length] = pTrue[k];
+    }
+    return pFalse.length;
+}
+
+//omg
+
+function partitionOn(pred, items) {
+    let leftPartition = [];
+    let rightPartition = [];
+
+    for (let i = 0; i < items.length; i++) {
+        let item = items[i];
+
+        if (!pred(item)) {
+            leftPartition.push(item);
+        } else {
+            rightPartition.push(item);
+        }
+    }
+
+    items.length = 0;
+
+    for (let i = 0; i < leftPartition.length; i++) {
+        items.push(leftPartition[i]);
+    }
+
+    for (let i = 0; i < rightPartition.length; i++) {
+        items.push(rightPartition[i]);
+    }
+
+    return leftPartition.length;
+}
+
+//top
+function partitionOn(pred, items) {
+    var f = items.filter(function (e) { return !pred(e); });
+    var t = items.filter(pred);
+    items.length = 0;
+    for (var i = 0; i < f.length; i++) { items.push(f[i]); }
+    for (var i = 0; i < t.length; i++) { items.push(t[i]); }
+
+    return f.length;
+}
+
+//top2
+function partitionOn(pred, items) {
+    var f = items.filter(v => !pred(v));
+    var t = items.filter(v => pred(v));
+    items.splice(0); items.push(...f); items.push(...t);
+    return f.length;
+}
+
