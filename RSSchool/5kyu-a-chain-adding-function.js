@@ -48,6 +48,7 @@ function add(a) {
     return f;
 }
 
+
 //top
 function add(n) {
     var fn = function (x) {
@@ -60,7 +61,7 @@ function add(n) {
 
     return fn;
 }
-
+            
 //top2
 var add = function (n) {
     const f = x => add(n + x)
