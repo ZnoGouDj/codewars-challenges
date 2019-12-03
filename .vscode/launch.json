@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}\\5kyu-a-chain-adding-function.js"
+            "program": "${workspaceFolder}\\6kyu-vowels-back.js"
         }
     ]
 }
