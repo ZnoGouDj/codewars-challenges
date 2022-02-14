@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ZnoGouDj/codewars-challenges/issues"
   },
-  "homepage": "https://github.com/ZnoGouDj/codewars-challenges#readme"
+  "homepage": "https://github.com/ZnoGouDj/codewars-challenges#readme",
+  "dependencies": {
+    "chai": "^4.3.6"
+  }
 }
