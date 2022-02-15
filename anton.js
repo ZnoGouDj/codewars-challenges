@@ -3,7 +3,7 @@ function divide(number, divideBy) {
   let arr = [];
 
   for (let i = 0; i < divideBy - 1; i++) {
-    let random = getRandomIntInclusive(0, num);
+    let random = Math.floor(Math.random() * num);
     num -= random;
     arr.push(random);
   }
@@ -13,16 +13,16 @@ function divide(number, divideBy) {
   return arr;
 }
 
-function getRandomIntInclusive(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+// function getRandomIntInclusive(min, max) {
+//   min = Math.ceil(min);
+//   max = Math.floor(max);
+//   return Math.floor(Math.random() * (max - min + 1)) + min;
+// }
 
 console.log(divideWithFractions(15, 3));
+// console.log(divide(15, 3));
 
 //! ============================================================
-
 function divideWithFractions(number, divideBy) {
   let num = number * 100;
   let arr = [];
