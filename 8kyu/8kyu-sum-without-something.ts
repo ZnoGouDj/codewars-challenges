@@ -1,4 +1,4 @@
-function sumArray(array) {
+function sumArray(array: number[]): number {
   return array && array.length > 2
     ? [...array]
         .sort((a, b) => a - b)

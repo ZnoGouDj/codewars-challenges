@@ -11,8 +11,8 @@ Test.assertEquals(otherAngle(43, 78), 59);
 Test.assertEquals(otherAngle(10, 20), 150);
 */
 
-function otherAngle(a, b) {
-    return 180 - (a + b);
+function otherAngle<T extends number>(a: T, b: T): number {
+  return 180 - (a + b);
 }
 //another mine
-const otherAngle = (a, b) => 180 - (a + b);
+const otherAngle1 = <T extends number>(a: T, b: T): number => 180 - (a + b);

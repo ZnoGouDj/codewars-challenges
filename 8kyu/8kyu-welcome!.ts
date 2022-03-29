@@ -31,43 +31,62 @@
 // Test.assertEquals(greet('dutch'), 'Welkom', "Your function should have returned 'Welkom'. Try again.");
 // Test.assertEquals(greet('IP_ADDRESS_INVALID'), 'Welcome', "Your function should have returned 'Welcome'. Try again.");
 
-function greet(language) {
-	const lang = {
-        english: 'Welcome',
-        czech: 'Vitejte',
-        danish: 'Velkomst',
-        dutch: 'Welkom',
-        estonian: 'Tere tulemast',
-        finnish: 'Tervetuloa',
-        flemish: 'Welgekomen',
-        french: 'Bienvenue',
-        german: 'Willkommen',
-        irish: 'Failte',
-        italian: 'Benvenuto',
-        latvian: 'Gaidits',
-        lithuanian: 'Laukiamas',
-        polish: 'Witamy',
-        spanish: 'Bienvenido',
-        swedish: 'Valkommen',
-        welsh: 'Croeso'
+function greet(language: string): string {
+  const lang = {
+    english: 'Welcome',
+    czech: 'Vitejte',
+    danish: 'Velkomst',
+    dutch: 'Welkom',
+    estonian: 'Tere tulemast',
+    finnish: 'Tervetuloa',
+    flemish: 'Welgekomen',
+    french: 'Bienvenue',
+    german: 'Willkommen',
+    irish: 'Failte',
+    italian: 'Benvenuto',
+    latvian: 'Gaidits',
+    lithuanian: 'Laukiamas',
+    polish: 'Witamy',
+    spanish: 'Bienvenido',
+    swedish: 'Valkommen',
+    welsh: 'Croeso',
+  };
+  for (let key in lang) {
+    if (key == language) {
+      return lang[key];
     }
-    for (let key in lang) {
-        if (key == language) {
-            return lang[key];
-        }  
-    }
-    return "Welcome";
+  }
+  return 'Welcome';
 }
 
 //top
+const langs = {
+  english: 'Welcome',
+  czech: 'Vitejte',
+  danish: 'Velkomst',
+  dutch: 'Welkom',
+  estonian: 'Tere tulemast',
+  finnish: 'Tervetuloa',
+  flemish: 'Welgekomen',
+  french: 'Bienvenue',
+  german: 'Willkommen',
+  irish: 'Failte',
+  italian: 'Benvenuto',
+  latvian: 'Gaidits',
+  lithuanian: 'Laukiamas',
+  polish: 'Witamy',
+  spanish: 'Bienvenido',
+  swedish: 'Valkommen',
+  welsh: 'Croeso',
+};
 
-function greet(lang) {
-    return langs[lang]||langs['english'];
-  }
+function greet1(lang: string): string {
+  return langs[lang] || langs['english'];
+}
 
-  //top2
-  function greet(language) {
-    var GreetingsDB = {
+//top2
+function greet2(language: string): string {
+  var GreetingsDB = {
       english: 'Welcome',
       czech: 'Vitejte',
       danish: 'Velkomst',
@@ -84,13 +103,33 @@ function greet(lang) {
       polish: 'Witamy',
       spanish: 'Bienvenido',
       swedish: 'Valkommen',
-      welsh: 'Croeso'
-    }, 
+      welsh: 'Croeso',
+    },
     defaultLanguage = 'english';
-    return GreetingsDB[language] || GreetingsDB[defaultLanguage];
-  }
+  return GreetingsDB[language] || GreetingsDB[defaultLanguage];
+}
 
-  //top3
-  function greet(language) {
-    return database[language] || "Welcome";
-    }
+//top3
+const database = {
+  english: 'Welcome',
+  czech: 'Vitejte',
+  danish: 'Velkomst',
+  dutch: 'Welkom',
+  estonian: 'Tere tulemast',
+  finnish: 'Tervetuloa',
+  flemish: 'Welgekomen',
+  french: 'Bienvenue',
+  german: 'Willkommen',
+  irish: 'Failte',
+  italian: 'Benvenuto',
+  latvian: 'Gaidits',
+  lithuanian: 'Laukiamas',
+  polish: 'Witamy',
+  spanish: 'Bienvenido',
+  swedish: 'Valkommen',
+  welsh: 'Croeso',
+};
+
+function greet3(language: string): string {
+  return database[language] || 'Welcome';
+}

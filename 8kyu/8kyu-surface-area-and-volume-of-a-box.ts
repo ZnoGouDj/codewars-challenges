@@ -8,8 +8,8 @@ Test.assertEquals(getSize(4, 2, 6)[0], 88);
 Test.assertEquals(getSize(4, 2, 6)[1], 48);
 */
 
-function getSize(width, height, depth) {
-    let newArr = [];
-    newArr.push(2 * width * height + 2 * width * depth + 2 * height * depth, width * height * depth);
-    return newArr;
+function getSize<T extends number>(width: T, height: T, depth: T): number[] {
+  let newArr = [];
+  newArr.push(2 * width * height + 2 * width * depth + 2 * height * depth, width * height * depth);
+  return newArr;
 }

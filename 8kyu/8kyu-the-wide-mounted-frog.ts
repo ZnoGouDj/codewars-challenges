@@ -10,6 +10,6 @@
 // Test.assertEquals(mouthSize("ant bear"),"wide")
 // Test.assertEquals(mouthSize("alligator"),"small")
 
-function mouthSize(animal) {
-    return animal.toLowerCase() === 'alligator' ? 'small' : 'wide';
+function mouthSize(animal: string): string {
+  return animal.toLowerCase() === 'alligator' ? 'small' : 'wide';
 }

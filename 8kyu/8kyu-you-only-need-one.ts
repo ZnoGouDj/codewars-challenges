@@ -12,15 +12,14 @@ Test.assertEquals(check(['t', 'e', 's', 't'], 'e'), true);
 Test.assertEquals(check(['what', 'a', 'great', 'kata'], 'kat'), false);
 */
 
-function check(a, x) {
-    return a.indexOf(x) > -1
+function check<T extends string | number>(a: T, x: T): boolean {
+  return a.toString().indexOf(x + '') > -1;
 }
 
 //another mine
 
-const check = (a, x) => a.indexOf(x) > -1
+const check1 = <T extends string | number>(a: T, x: T) => a.toString().indexOf(x + '') > -1;
 
-//top 
+//top
 
-const check = (a,x) => a.includes(x);
-
+const check2 = <T extends string | number>(a: T, x: T) => a.toString().includes(x + '');
