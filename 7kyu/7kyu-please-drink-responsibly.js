@@ -213,3 +213,11 @@ drinkResponsibly(5, 360)) => 'BEER!'
 // Beer case: 5 * (3 * 8) * 2 = 360$ => 3 good days and 0$ left.
 ```
 */
+
+//?
+function drinkResponsibly(people, budget) {
+  if (budget > 192) return 'BEER!';
+  if (budget < 192 || budget / 30 > people) return 'VODKA!';
+
+  return 'BUMMER!';
+}

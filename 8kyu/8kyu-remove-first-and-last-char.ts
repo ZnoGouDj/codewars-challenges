@@ -5,11 +5,11 @@
 // Test.assertEquals(removeChar('person'), 'erso');
 // Test.assertEquals(removeChar('place'), 'lac');
 
-function removeChar(str) {
-    return str.substr(1, str.length - 2);
-};
+function removeChar(str: string): string {
+  return str.substr(1, str.length - 2);
+}
 
 //top
-function removeChar(str) {
-    return str.slice(1, -1);
+function removeChar1(str: string): string {
+  return str.slice(1, -1);
 }

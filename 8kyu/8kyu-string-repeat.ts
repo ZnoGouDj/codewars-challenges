@@ -9,19 +9,18 @@ repeatStr(5, "Hello") // "HelloHelloHelloHelloHello"
     Test.assertSimilar(repeatStr(2, "ha "), "ha ha ");
 */
 
-function repeatStr(n, s) {
-    return s.repeat(n);
+function repeatStr(n: number, s: string): string {
+  return s.repeat(n);
 }
 
 //another me
 
-const repeatStr = (n, s) => s.repeat(n);
+const repeatStr1 = (n: number, s: string): string => s.repeat(n);
 
 //another
 
-function repeatStr(n, s) {
-    let str = "";
-    for (let i = 0; i < n; i++)
-        str += s;
-    return str;
+function repeatStr2(n: number, s: string): string {
+  let str = '';
+  for (let i = 0; i < n; i++) str += s;
+  return str;
 }

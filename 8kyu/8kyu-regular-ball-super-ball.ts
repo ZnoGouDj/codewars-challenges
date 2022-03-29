@@ -13,22 +13,23 @@
 // Test.assertEquals(new Ball().ballType, "regular");
 // Test.assertEquals(new Ball("super").ballType, "super");
 
-var Ball = function (ballType = 'regular') {
-    this.ballType = ballType;
-    if (ballType === 'super') {
-        return 'super';
-    } else {
-        return 'regular';}
+var Ball = function (ballType: string = 'regular'): string {
+  this.ballType = ballType;
+  if (ballType === 'super') {
+    return 'super';
+  } else {
+    return 'regular';
+  }
 };
 
 //top
-var Ball = function (ballType) {
-    this.ballType = ballType || 'regular';
+var Ball1 = function (ballType: string) {
+  this.ballType = ballType || 'regular';
 };
 
 //top2
-class Ball {
-    constructor(ballType = "regular") {
-        this.ballType = ballType;
-    }
-}
+// class Ball2 {
+//     constructor(ballType = "regular") {
+//         this.ballType = ballType;
+//     }
+// }

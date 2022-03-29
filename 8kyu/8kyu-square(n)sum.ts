@@ -8,13 +8,13 @@ Test.assertEquals(squareSum([1,2]), 5)
 Test.assertEquals(squareSum([0, 3, 4, 5]), 50)
 */
 
-function squareSum(numbers) {
-    let sum = numbers.reduce(function (acc, num) {
-        return acc + Math.pow(num, 2);
-    }, 0);
-    return sum;
+function squareSum(numbers: number[]): number {
+  let sum = numbers.reduce(function (acc, num) {
+    return acc + Math.pow(num, 2);
+  }, 0);
+  return sum;
 }
 //another
-function squareSum(numbers) {
-    return numbers.reduce((a, b) => a + Math.pow(b, 2), 0);
+function squareSum1(numbers: number[]): number {
+  return numbers.reduce((a, b) => a + Math.pow(b, 2), 0);
 }

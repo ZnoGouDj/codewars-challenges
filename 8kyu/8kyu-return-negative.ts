@@ -1,4 +1,4 @@
-// In this simple assignment you are given a number and have to make it negative. 
+// In this simple assignment you are given a number and have to make it negative.
 // But maybe the number is already negative?
 
 // Example:
@@ -14,13 +14,13 @@
 
 // Test.assertEquals(makeNegative(42), -42);
 
-function makeNegative(num) {
-    return num <= 0 ? num : -num;
+function makeNegative(num: number): number {
+  return num <= 0 ? num : -num;
 }
 
-const makeNegative = num => num <= 0 ? num : -num;
+const makeNegative1 = (num: number): number => (num <= 0 ? num : -num);
 
 //top
-function makeNegative(num) {
-    return -Math.abs(num);
+function makeNegative2(num: number): number {
+  return -Math.abs(num);
 }
