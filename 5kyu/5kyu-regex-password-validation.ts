@@ -15,18 +15,21 @@
 // Test.expect(!validate('abc'), 'abc - Expected false');
 // Test.expect(validate('Password123'), 'Password123 - Expected true');
 
-function validate(password) {
-    if (password.length < 6) { return false; }
-    if (!/^[a-z0-9]+$/i.test(password)) { return false; }
-    let re = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])/g;
-    return re.test(password);
+function validate(password: string): boolean {
+  if (password.length < 6) {
+    return false;
+  }
+  if (!/^[a-z0-9]+$/i.test(password)) {
+    return false;
+  }
+  let re = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])/g;
+  return re.test(password);
 }
 
 //top
 
-function validate(password) {
-    return  /^[A-Za-z0-9]{6,}$/.test(password) &&
-            /[A-Z]+/           .test(password) &&
-            /[a-z]+/           .test(password) &&
-            /[0-9]+/           .test(password) ;
-  }
+function validate1(password: string): boolean {
+  return (
+    /^[A-Za-z0-9]{6,}$/.test(password) && /[A-Z]+/.test(password) && /[a-z]+/.test(password) && /[0-9]+/.test(password)
+  );
+}

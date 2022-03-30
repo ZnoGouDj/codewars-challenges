@@ -1,4 +1,4 @@
-function smallest(n) {
+function smallest(n: number): number[] {
   let arr = String(n).split('');
   let indexFrom = 0;
   let indexTo = 0;

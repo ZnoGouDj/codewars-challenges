@@ -1,4 +1,4 @@
-function dirReduc(arr) {
+function dirReduc(arr: string[]): string[] {
   let arrCopy = [...arr];
 
   for (let i = 0; i < arrCopy.length; i++) {

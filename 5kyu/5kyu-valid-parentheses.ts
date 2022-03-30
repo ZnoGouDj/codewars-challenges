@@ -1,4 +1,4 @@
-function validParentheses(parens) {
+function validParentheses(parens: string): boolean {
   let arr = parens.split('');
 
   for (let i = 0; i < arr.length; i++) {
@@ -13,7 +13,7 @@ function validParentheses(parens) {
 
 //!
 
-function validParentheses(parens) {
+function validParentheses1(parens: string): boolean {
   var n = 0;
   for (var i = 0; i < parens.length; i++) {
     if (parens[i] == '(') n++;
