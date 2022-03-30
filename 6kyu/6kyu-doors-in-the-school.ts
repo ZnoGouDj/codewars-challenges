@@ -1,5 +1,3 @@
-type N = number;
-
 function doors(n: N): N {
   let arr = Array(n).fill(false);
 

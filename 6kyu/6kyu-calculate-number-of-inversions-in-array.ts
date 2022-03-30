@@ -20,41 +20,40 @@
 // Test.assertEquals(countInversions([6,5,4,3,3,3,3,2,1]), 30, 'Array [6,5,4,3,3,3,3,2,1] has 30 inversions');
 
 // Calculate the number of inversions in array
-function countInversions(array) {
-    let counter = 0;
-    for (let i = 0; i < array.length; i++) {
-        let counterInner = 0;
-        let middle;
-        if (array[i] > array[i + 1]) {
-            middle = array[i];
-            array[i] = array[i + 1];
-            array[i + 1] = middle;
-            counterInner++;
-        }
-        counter += counterInner;
-        if (counterInner > 0) {
-            counterInner = 0;
-            i = -1;
-        }
+function countInversions(array: N[]): N {
+  let counter = 0;
+  for (let i = 0; i < array.length; i++) {
+    let counterInner = 0;
+    let middle: N;
+    if (array[i] > array[i + 1]) {
+      middle = array[i];
+      array[i] = array[i + 1];
+      array[i + 1] = middle;
+      counterInner++;
     }
-    return counter;
+    counter += counterInner;
+    if (counterInner > 0) {
+      counterInner = 0;
+      i = -1;
+    }
+  }
+  return counter;
 }
 
 //top
-function countInversions(arr) {
-    return arr.map((x, i) => arr.slice(i + 1).filter(y => y < x).length).reduce((a, b) => a + b, 0);
+function countInversions1(arr: N[]): N {
+  return arr.map((x, i) => arr.slice(i + 1).filter(y => y < x).length).reduce((a, b) => a + b, 0);
 }
 
 //top2
-function countInversions(array) {
-    var numInversions = 0;
+function countInversions2(array: N[]): N {
+  var numInversions: any = 0;
 
-    for (var i = 0; i < array.length; i++) {
-        for (var j = i + 1; j < array.length; j++) {
-            numInversions += array[i] > array[j];
-        }
+  for (var i = 0; i < array.length; i++) {
+    for (var j = i + 1; j < array.length; j++) {
+      numInversions += array[i] > array[j];
     }
+  }
 
-    return numInversions;
+  return numInversions;
 }
-  

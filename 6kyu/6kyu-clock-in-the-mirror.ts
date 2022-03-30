@@ -1,11 +1,11 @@
-function WhatIsTheTime(timeInMirror) {
+function WhatIsTheTime(timeInMirror: any): S {
   let time = timeInMirror.split(':');
 
-  let minutes = 60 - time[1];
+  let minutes: any = 60 - time[1];
   if (minutes < 10) minutes = '0' + minutes;
   if (minutes > 59) minutes = '00';
 
-  let hours = minutes == 0 ? 12 - time[0] : 11 - time[0];
+  let hours: any = minutes == 0 ? 12 - time[0] : 11 - time[0];
   if (hours == 0) hours = 12;
   if (hours < 0) hours = 11;
   if (hours < 10) hours = '0' + hours;
@@ -15,7 +15,7 @@ function WhatIsTheTime(timeInMirror) {
 
 //!
 
-let WhatIsTheTime = t => {
+let WhatIsTheTime1 = (t: any): S => {
   let [h, m] = t.split(':');
   h = (+m ? 11 : 12) - (h % 12) || 12;
   m = (60 - m) % 60;

@@ -12,14 +12,14 @@
 //   return arr.join('');
 // }
 
-const solution = string =>
+const solution = (string: S): S =>
   string
     .split('')
-    .map(el => (el.toLowerCase() !== el ? ' ' + el : el))
+    .map((el: S) => (el.toLowerCase() !== el ? ' ' + el : el))
     .join('');
 
 //! omg
-function solution(string) {
+function solution1(string: S): S {
   return string.replace(/([A-Z])/g, ' $1');
 }
 

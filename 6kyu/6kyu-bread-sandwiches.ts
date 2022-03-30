@@ -1,4 +1,4 @@
-function slicesToName(n) {
+function slicesToName(n: S | N): S {
   if (typeof n !== 'number' || n < 2) return null;
 
   const arr = Array(Math.floor(n / 2)).fill('sandwich', 0, Math.floor(n / 2) + 1);
@@ -10,7 +10,7 @@ function slicesToName(n) {
   return arr.join(' ');
 }
 
-function nameToSlices(name) {
+function nameToSlices(name: any): N {
   if (
     typeof name !== 'string' ||
     name.length < 1 ||

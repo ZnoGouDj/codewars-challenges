@@ -1,5 +1,5 @@
 //return the total number of smiling faces in the array
-function countSmileys(arr) {
+function countSmileys(arr: S[]): N {
   const collection = [':\\)', ':D', ':~\\)', ':-\\)', ':~D', ':-D', ';\\)', ';D', ';~\\)', ';-\\)', ';~D', ';-D'];
 
   return arr.filter(
@@ -20,7 +20,7 @@ function countSmileys(arr) {
 }
 
 //!
-function countSmileys(arr) {
+function countSmileys1(arr: S[]): N {
   return arr.filter(x => /^[:;][-~]?[)D]$/.test(x)).length;
 }
 

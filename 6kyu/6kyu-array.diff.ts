@@ -1,4 +1,4 @@
-function arrayDiff(a, b) {
+function arrayDiff(a: N[], b: N[]): N[] {
   return a.filter(x => !b.includes(x));
 }
 

@@ -1,4 +1,4 @@
-function isPangram(string) {
+function isPangram(string: S): B {
   let str = string.toUpperCase().split(' ').join('');
 
   const alphabet = [
@@ -42,7 +42,7 @@ function isPangram(string) {
 
 //!
 
-function isPangram(string) {
+function isPangram1(string: S): B {
   string = string.toLowerCase();
   return 'abcdefghijklmnopqrstuvwxyz'.split('').every(function (x) {
     return string.indexOf(x) !== -1;

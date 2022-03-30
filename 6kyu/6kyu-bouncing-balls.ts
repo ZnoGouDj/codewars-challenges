@@ -1,4 +1,4 @@
-function bouncingBall(h, bounce, window) {
+function bouncingBall(h: N, bounce: N, window: N): N {
   if (bounce <= 0 || bounce >= 1) return -1;
 
   let count = -1;
@@ -12,7 +12,7 @@ function bouncingBall(h, bounce, window) {
 
 //!
 
-function bouncingBall(h, bounce, window) {
+function bouncingBall1(h: N, bounce: N, window: N): N {
   var rebounds = -1;
   if (bounce > 0 && bounce < 1) while (h > window) (rebounds += 2), (h *= bounce);
   return rebounds;

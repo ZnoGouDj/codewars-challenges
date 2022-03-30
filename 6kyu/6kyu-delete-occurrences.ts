@@ -1,4 +1,4 @@
-function deleteNth(arr, n) {
+function deleteNth(arr: N[], n: N): N[] {
   let result = [...arr];
   let occurences = 0;
 
@@ -19,7 +19,7 @@ function deleteNth(arr, n) {
 
 //!
 
-function deleteNth(arr, x) {
+function deleteNth1(arr: N[], x: N): N[] {
   var cache = {};
   return arr.filter(function (n) {
     cache[n] = (cache[n] || 0) + 1;

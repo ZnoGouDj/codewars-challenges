@@ -1,4 +1,4 @@
-function shiftedDiff(first, second) {
+function shiftedDiff(first: S, second: S): N {
   let check = first.split('');
   let counter = 0;
 
@@ -16,7 +16,7 @@ function shiftedDiff(first, second) {
 }
 
 //! ahahaha
-function shiftedDiff(first, second) {
+function shiftedDiff1(first: S, second: S): N {
   if (first.length != second.length) return -1;
   return (second + second).indexOf(first);
 }
