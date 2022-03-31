@@ -1,4 +1,4 @@
-function expandedForm(num) {
+function expandedForm(num: number): string {
   const arr = num.toString().split('');
   let length = arr.length - 1;
   let str = '';
@@ -17,12 +17,12 @@ function expandedForm(num) {
 }
 
 // forgot about join()
-const expandedForm = n =>
+const expandedForm1 = (n: number): string =>
   n
     .toString()
     .split('')
     .reverse()
-    .map((a, i) => a * Math.pow(10, i))
+    .map((a: any, i) => a * Math.pow(10, i))
     .filter(a => a > 0)
     .reverse()
     .join(' + ');

@@ -1,4 +1,4 @@
-function oddRow(n) {
+function oddRow(n: number): number[] {
   if (n === 1) return [1];
 
   let stepsFrom1 = n - 1;
@@ -15,7 +15,7 @@ function oddRow(n) {
   return arr;
 }
 
-function oddRow(n) {
+function oddRow1(n: number): number[] {
   return Array(n)
     .fill(0)
     .map((_, i) => n * n - n + 1 + i * 2);

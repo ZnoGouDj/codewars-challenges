@@ -1,7 +1,7 @@
-function f(s) {
+function f(s: string): (string | number)[] {
   let arr = s.split('');
 
-  let splitted;
+  let splitted: any[];
 
   for (let i = s.length; i >= 2; i--) {
     let arrCopy = [...arr];
@@ -18,7 +18,7 @@ function f(s) {
   return [s, 1];
 }
 
-function splitToChunks(array, parts) {
+function splitToChunks(array: string[], parts: number): string[] {
   let result = [];
   for (let i = parts; i > 0; i--) {
     result.push(array.splice(0, Math.ceil(array.length / i)));
@@ -28,7 +28,7 @@ function splitToChunks(array, parts) {
 
 //!
 
-function f(s) {
+function f1(s: string): (string | number)[] {
   for (let i = 1; i < s.length; i++) {
     if (s.substring(0, i).repeat(s.length / i) === s) {
       return [s.substring(0, i), s.length / i];

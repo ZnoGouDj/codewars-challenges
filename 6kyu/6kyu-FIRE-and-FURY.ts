@@ -1,11 +1,11 @@
-function fireAndFury(tweet) {
+function fireAndFury(tweet: string): string {
   let replaceFury = tweet.replaceAll('FURY', 0);
   let replaceFire = replaceFury.replaceAll('FIRE', 1);
   let arr = replaceFire.split('');
 
   if (checkIfFake(arr)) return 'Fake tweet.';
 
-  let array = arr.filter(el => +el >= 0);
+  let array: any = arr.filter(el => +el >= 0);
   const result = [];
   let counter = -1;
   let currentThing = array[0];
@@ -30,7 +30,7 @@ function fireAndFury(tweet) {
   return result.length ? result.map(el => el.replace(/\s\s+/g, ' ')).join(' ') : 'Fake tweet.';
 }
 
-function checkIfFake(arr) {
+function checkIfFake(arr: string[]) {
   let check = 'EFIRUY01';
 
   let imTiredToCreateBetterSolution = 0;
@@ -44,6 +44,10 @@ function checkIfFake(arr) {
   return !!imTiredToCreateBetterSolution;
 }
 
+interface String {
+  replaceAll(s: string, n: number): string;
+}
+
 // stole this one from the google
 String.prototype.replaceAll = function (str, newStr) {
   if (Object.prototype.toString.call(str).toLowerCase() === '[object regexp]') {
@@ -55,7 +59,7 @@ String.prototype.replaceAll = function (str, newStr) {
 
 //!
 
-var fireAndFury = function (tweet) {
+var fireAndFury1 = function (tweet: string): string {
   let matches = tweet.match(/(FURY|FIRE)/g);
 
   if (/[^EFIRUY]/.test(tweet) || !matches) return 'Fake tweet.';
@@ -77,7 +81,7 @@ var fireAndFury = function (tweet) {
 
 // I'm not proud of this, but I put about as much effort into it as
 // the angry tweeter himself.
-const fireAndFury = t => {
+const fireAndFury2 = (t: any): string => {
   if (t.replace(/[FIREUY]/g, '').length > 0) return 'Fake tweet.';
   t = t.replace(/FIRE/g, '-').replace(/FURY/g, '=').replace(/[^-=]/g, '');
   if (!t.length) return 'Fake tweet.';

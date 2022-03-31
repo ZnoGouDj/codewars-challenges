@@ -1,4 +1,4 @@
-function getScore(n) {
+function getScore(n: number): number {
   let sum = 0;
 
   for (let i = 1; i <= n; i++) {
@@ -8,7 +8,7 @@ function getScore(n) {
   return sum;
 }
 
-function getScore(n) {
+function getScore1(n: number): number {
   return n !== 0 ? n * 50 + getScore(n - 1) : 0;
 }
 

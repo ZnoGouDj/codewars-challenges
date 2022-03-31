@@ -1,4 +1,4 @@
-function findUniq(arr) {
+function findUniq(arr: number[]): number {
   let number = arr[0];
   let number1 = arr[1];
   let number2 = arr[2];
@@ -28,7 +28,7 @@ function findUniq(arr) {
   }
 }
 
-function findUniq(arr) {
+function findUniq1(arr: number[]): number {
   const anyArrayValue = arr[0];
 
   //sorry for that
@@ -42,12 +42,12 @@ function findUniq(arr) {
   return arr1.length > arr2.length ? arr2[0] : arr1[0];
 }
 
-function findUniq(arr) {
+function findUniq2(arr: number[]): number {
   arr.sort((a, b) => a - b);
   return arr[0] == arr[1] ? arr.pop() : arr[0];
 }
 
-function findUniq(arr) {
+function findUniq3(arr: number[]): number {
   return arr.find(n => arr.indexOf(n) === arr.lastIndexOf(n));
 }
 

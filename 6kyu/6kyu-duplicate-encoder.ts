@@ -1,4 +1,4 @@
-function duplicateEncode(word) {
+function duplicateEncode(word: string): string {
   let arr = word.split('').map(el => el.toLowerCase());
   let obj = {};
   let result = '';
@@ -17,7 +17,7 @@ function duplicateEncode(word) {
 //! lastIndexOf() --
 //? возвращает индекс последнего вхождения указанного значения в строковый объект String
 
-function duplicateEncode(word) {
+function duplicateEncode1(word: string): string {
   return word
     .toLowerCase()
     .split('')

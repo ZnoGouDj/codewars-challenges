@@ -1,4 +1,4 @@
-function suffixSums(a) {
+function suffixSums(a: number[]): number[] {
   const b = [];
 
   const array = [...a];

@@ -1,4 +1,4 @@
-function validBraces(braces) {
+function validBraces(braces: string): boolean {
   let arr = braces.split('');
 
   for (let i = 0; i < arr.length; i++) {
@@ -18,7 +18,7 @@ function validBraces(braces) {
 }
 
 //!
-function validBraces(braces) {
+function validBraces1(braces: string): boolean {
   while (braces.indexOf('{}') != -1 || braces.indexOf('()') != -1 || braces.indexOf('[]') != -1) {
     braces = braces.replace('{}', '').replace('()', '').replace('[]', '');
   }

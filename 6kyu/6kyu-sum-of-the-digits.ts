@@ -1,4 +1,4 @@
-function digital_root(n) {
+function digital_root(n: number): number {
   let sum = n
     .toString()
     .split('')
@@ -10,7 +10,7 @@ function digital_root(n) {
 
 //!
 
-function digital_root(n) {
+function digital_root1(n: number): number {
   if (n < 10) return n;
 
   return digital_root(
@@ -25,7 +25,7 @@ function digital_root(n) {
 
 //?
 
-function digital_root(n) {
+function digital_root2(n: number): number {
   return ((n - 1) % 9) + 1;
 }
 

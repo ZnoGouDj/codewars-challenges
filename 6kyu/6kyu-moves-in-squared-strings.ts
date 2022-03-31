@@ -1,6 +1,6 @@
-const reverse = s => s.split('').reverse().join('');
+const reverse = (s: string): string => s.split('').reverse().join('');
 
-const rot = string => {
+const rot = (string: string): string => {
   return string
     .split('\n')
     .map(el => reverse(el))
@@ -8,7 +8,7 @@ const rot = string => {
     .join('\n');
 };
 
-const selfieAndRot = string => {
+const selfieAndRot = (string: string): string => {
   const selfie = string.split('\n').map(el => el.padEnd(el.length * 2, '.'));
 
   const rot = string
@@ -19,7 +19,7 @@ const selfieAndRot = string => {
   return selfie.concat(rot).join('\n');
 };
 
-const oper = (fct, s) => fct(s);
+const oper = (fct: Function, s: string): string => fct(s);
 
 /*
 rot => rotation : "abcd\nefgh\nijkl\nmnop" => "ponm\nlkji\nhgfe\ndcba"

@@ -1,4 +1,4 @@
-function amountOfPages(summary) {
+function amountOfPages(summary: number): number {
   let str = '';
 
   if (summary == 2893) return 1000;
@@ -25,7 +25,7 @@ function amountOfPages(summary) {
 
 //!
 
-function amountOfPages(summary) {
+function amountOfPages1(summary: number): number {
   let n = 0;
   for (var i = 1; n < summary; i++) {
     n = n += i.toString().length;
@@ -35,7 +35,7 @@ function amountOfPages(summary) {
 
 //?
 
-function amountOfPages(summary) {
+function amountOfPages2(summary: number): number {
   if (summary > 488889) {
     //the book has 100000-999999 pages
     return (summary - 488889) / 6 + 99999;

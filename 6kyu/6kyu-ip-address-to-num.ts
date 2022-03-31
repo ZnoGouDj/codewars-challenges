@@ -1,4 +1,4 @@
-function ipToNum(ip) {
+function ipToNum(ip: string): number {
   let splitByFour = ip.split('.');
 
   const binary = [];
@@ -12,13 +12,13 @@ function ipToNum(ip) {
   return parseInt(binaryMerge, 2);
 }
 
-function numToIp(num) {
+function numToIp(num: number): string {
   let decimalToBinary = Number(num).toString(2).padStart(32, '0');
 
   const decimal = [];
 
   decimalToBinary.match(/.{1,8}/g).forEach(el => {
-    decimal.push(parseInt(Number(el), 2));
+    decimal.push(parseInt(el, 2));
   });
 
   return decimal.join('.');

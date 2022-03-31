@@ -1,4 +1,4 @@
-function jumpTo(x, y) {
+function jumpTo(x: number, y: number): number {
   let steps = 0;
   let points = y;
 

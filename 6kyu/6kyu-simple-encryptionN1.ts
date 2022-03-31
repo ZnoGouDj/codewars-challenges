@@ -1,4 +1,4 @@
-function encrypt(text, n) {
+function encrypt(text: string, n: number): string {
   if (!text || n < 0) return text;
 
   const even = [];
@@ -21,7 +21,7 @@ function encrypt(text, n) {
   return result;
 }
 
-function decrypt(encryptedText, n) {
+function decrypt(encryptedText: string, n: number): string {
   let test = encryptedText;
   let cont = '';
 

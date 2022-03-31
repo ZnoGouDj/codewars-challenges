@@ -1,4 +1,4 @@
-function alphabetPosition(text) {
+function alphabetPosition(text: string): string {
   const positions = [
     'a',
     'b',
@@ -45,11 +45,11 @@ function alphabetPosition(text) {
 
 //!
 
-function alphabetPosition(text) {
+function alphabetPosition1(text: string): string {
   return text
     .toUpperCase()
     .match(/[a-z]/gi)
-    .map(c => c.charCodeAt() - 64)
+    .map(c => c.charCodeAt(null) - 64)
     .join(' ');
 }
 

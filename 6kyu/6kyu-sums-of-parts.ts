@@ -26,41 +26,39 @@ parts_sums(ls) -> [10037855, 9293730, 9292795, 9292388, 9291934, 9291504, 929141
 partsSums([1,2,3,4,5,6])
 */
 
-function partsSums(ls) {
-    let newArr = [];
-    for (let i = 0; i < ls.length;) {
-        let sum = ls.reduce(function (previousValue, value) {
-            return previousValue + value;
-        });
-        newArr.push(sum);
-        ls.shift();
-    }
-    newArr.push(0);
-    return newArr;
-}
-
-function partsSums(ls) {
-
-    let sum = 0;
-    let newArr = [];
-
-    ls.forEach(function (value) {
-        sum += +value;
+function partsSums(ls: number[]): number[] {
+  let newArr = [];
+  for (let i = 0; i < ls.length; ) {
+    let sum = ls.reduce(function (previousValue, value) {
+      return previousValue + value;
     });
     newArr.push(sum);
+    ls.shift();
+  }
+  newArr.push(0);
+  return newArr;
+}
 
-    for (let i = 0; i < ls.length; i++) {
-        newArr.push(sum - ls[i]);
-        sum -= ls[i];
-    }
-    return newArr;
+function partsSums1(ls: number[]): number[] {
+  let sum = 0;
+  let newArr = [];
+
+  ls.forEach(function (value) {
+    sum += +value;
+  });
+  newArr.push(sum);
+
+  for (let i = 0; i < ls.length; i++) {
+    newArr.push(sum - ls[i]);
+    sum -= ls[i];
+  }
+  return newArr;
 }
 
 //top
 
-function partsSums(ls) {
-    ls.unshift(0);
-    let sum = ls.reduce((p, c) => p + c, 0);
-    return ls.map(v => sum = sum - v);
+function partsSums2(ls: number[]): number[] {
+  ls.unshift(0);
+  let sum = ls.reduce((p, c) => p + c, 0);
+  return ls.map(v => (sum = sum - v));
 }
-
