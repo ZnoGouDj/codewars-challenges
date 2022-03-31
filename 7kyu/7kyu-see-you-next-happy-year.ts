@@ -26,32 +26,27 @@ As the Next closest year with only distinct digits is 1023 .
 */
 
 //top
-function nextHappyYear(a) {
-    while (new Set([...++a + '']).size < 4);
-    return a;
+function nextHappyYear(a: N): N {
+  while (new Set([...(++a + '')]).size < 4);
+  return a;
 }
 
 //top2
-function nextHappyYear(year) {
-    let newYear = year + 1
-    let arr = newYear.toString().split('')
-    if (arr.join('') === Array.from(new Set(arr)).join('')) return newYear
-    else return nextHappyYear(newYear)
+function nextHappyYear1(year: N): N {
+  let newYear = year + 1;
+  let arr = newYear.toString().split('');
+  if (arr.join('') === Array.from(new Set(arr)).join('')) return newYear;
+  else return nextHappyYear(newYear);
 }
 
 //top3
-function nextHappyYear(year) {
-    do {
-        year++;
-        var x = year.toString();
-    } while (x[0] == x[1] ||
-    x[1] == x[2] ||
-    x[2] == x[3] ||
-    x[1] == x[3] ||
-    x[2] == x[0] ||
-        x[3] == x[0])
+function nextHappyYear2(year: N): N {
+  do {
+    year++;
+    var x = year.toString();
+  } while (x[0] == x[1] || x[1] == x[2] || x[2] == x[3] || x[1] == x[3] || x[2] == x[0] || x[3] == x[0]);
 
-    return year;
+  return year;
 }
 
 /*
@@ -59,4 +54,3 @@ nextHappyYear(1001),1023);
 nextHappyYear(1123),1203);
 nextHappyYear(2001),2013);
 */
-

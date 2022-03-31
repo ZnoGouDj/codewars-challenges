@@ -1,4 +1,4 @@
-function drinkResponsibly(people, budget) {
+function drinkResponsibly(people: number, budget: number): string {
   let twoBeerCases = 4 * 24 * 2; // 192
   let vodkaDaily = 30 * people;
   let beerDaily = budget >= twoBeerCases ? 3 * 8 * people : 4 * 8 * people;
@@ -215,7 +215,7 @@ drinkResponsibly(5, 360)) => 'BEER!'
 */
 
 //?
-function drinkResponsibly(people, budget) {
+function drinkResponsibly1(people: number, budget: number): string {
   if (budget > 192) return 'BEER!';
   if (budget < 192 || budget / 30 > people) return 'VODKA!';
 

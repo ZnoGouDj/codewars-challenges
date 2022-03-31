@@ -1,13 +1,13 @@
 // A History Lesson
-// Tetris is a puzzle video game originally designed and programmed by Soviet Russian software engineer Alexey Pajitnov. 
-// The first playable version was completed on June 6, 1984. Pajitnov derived its name from combining the Greek numerical 
+// Tetris is a puzzle video game originally designed and programmed by Soviet Russian software engineer Alexey Pajitnov.
+// The first playable version was completed on June 6, 1984. Pajitnov derived its name from combining the Greek numerical
 // prefix tetra- (the falling pieces contain 4 segments) and tennis, Pajitnov's favorite sport.
 
 // About scoring system
-// The scoring formula is built on the idea that more difficult line clears should be awarded more points. 
+// The scoring formula is built on the idea that more difficult line clears should be awarded more points.
 // For example, a single line clear is worth 40 points, clearing four lines at once (known as a Tetris) is worth 1200.
 
-// A level multiplier is also used. The game starts at level 0. The level increases every ten lines you clear. 
+// A level multiplier is also used. The game starts at level 0. The level increases every ten lines you clear.
 // For our task you can use this table:
 
 // Level   Points for 1 line   Points for 2 lines	Points for 3 lines	Points for 4 lines
@@ -25,7 +25,7 @@
 // Input
 // Array with cleaned lines.
 // Example: [4, 2, 2, 3, 3, 4, 2]
-// Input will always be valid: array of random length 
+// Input will always be valid: array of random length
 // (from 0 to 5000) with numbers from 0 to 4.
 
 // Ouput
@@ -51,38 +51,40 @@
 // testing([0], 0);
 // testing([], 0);
 
-function getScore(arr) {
-    let cleanedLines = 0;
-    let points = 0;
-    let sum = 0;
-    let level = 0;
-    if (arr.length === 0) { return 0; }
-    for (let i = 0; i < arr.length; i++) {
-        cleanedLines += arr[i];
-        switch (arr[i]) {
-            case 0:
-                sum = 0;
-                break;
-            case 1:
-                sum = 40 + 40 * level;
-                break;
-            case 2:
-                sum = 100 + 100 * level;
-                break;
-            case 3:
-                sum = 300 + 300 * level;
-                break;
-            case 4:
-                sum = 1200 + 1200 * level;
-                break;
-        }
-        points += sum;
-        if (cleanedLines >= 10) {
-            cleanedLines -= 10;
-            level++;
-        }
+function getScore(arr: N[]): N {
+  let cleanedLines = 0;
+  let points = 0;
+  let sum = 0;
+  let level = 0;
+  if (arr.length === 0) {
+    return 0;
+  }
+  for (let i = 0; i < arr.length; i++) {
+    cleanedLines += arr[i];
+    switch (arr[i]) {
+      case 0:
+        sum = 0;
+        break;
+      case 1:
+        sum = 40 + 40 * level;
+        break;
+      case 2:
+        sum = 100 + 100 * level;
+        break;
+      case 3:
+        sum = 300 + 300 * level;
+        break;
+      case 4:
+        sum = 1200 + 1200 * level;
+        break;
     }
-    return points;
+    points += sum;
+    if (cleanedLines >= 10) {
+      cleanedLines -= 10;
+      level++;
+    }
+  }
+  return points;
 }
 
 getScore([0, 1, 2, 3, 4]); //1640

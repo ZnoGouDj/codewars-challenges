@@ -1,4 +1,4 @@
-function SeriesSum(n) {
+function SeriesSum(n: N): string {
   if (n === 0) return '0.00';
   let sum = 1;
   let divider = 4;

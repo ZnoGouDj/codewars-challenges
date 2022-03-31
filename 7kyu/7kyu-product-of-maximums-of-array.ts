@@ -36,22 +36,25 @@
 // Test.assertEquals(maxProduct([14,29,-28,39,-16,-48], 4), -253344);
 // Test.assertEquals(maxProduct([1], 1), 1);
 
-function maxProduct(numbers, size) {
-    let descending = numbers.sort((a, b) => b - a);
-    let newLengthArr = descending.slice(0, size);
-    let produce1 = newLengthArr.reduce((a, b) => a * b);
-    return produce1;
+function maxProduct(numbers: N[], size: N): N {
+  let descending = numbers.sort((a, b) => b - a);
+  let newLengthArr = descending.slice(0, size);
+  let produce1 = newLengthArr.reduce((a, b) => a * b);
+  return produce1;
 }
 
 //top
-function maxProduct(numbers, size) {
-    return numbers.sort((a, b) => b - a).slice(0, size).reduce((acc, n) => acc * n);
+function maxProduct1(numbers: N[], size: N): N {
+  return numbers
+    .sort((a, b) => b - a)
+    .slice(0, size)
+    .reduce((acc, n) => acc * n);
 }
 
 //top3, more comfortable to read;
-function maxProduct(numbers, size) {
-    return numbers
-        .sort((a, b) => b - a)
-        .slice(0, size)
-        .reduce((sum, el) => sum * el, 1);
+function maxProduct2(numbers: N[], size: N): N {
+  return numbers
+    .sort((a, b) => b - a)
+    .slice(0, size)
+    .reduce((sum, el) => sum * el, 1);
 }

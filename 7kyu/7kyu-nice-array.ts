@@ -24,7 +24,7 @@ function isNice(arr: number[]) {
 //!
 
 export class Kata {
-  static isNice(arr) {
+  static isNice(arr: N[]): boolean {
     let set = new Set(arr);
 
     return arr.length !== 0 && arr.every(v => set.has(v - 1) || set.has(v + 1));

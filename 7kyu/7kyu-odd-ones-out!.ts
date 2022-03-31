@@ -28,8 +28,7 @@ oddOnesOut([1]) = []
 Are you up to the challenge?
 */
 
-
-let oddOnesOut = nums => nums.filter(n => nums.filter(x => x === n).length % 2 === 0);
+let oddOnesOut = (nums: number[]): number[] => nums.filter(n => nums.filter(x => x === n).length % 2 === 0);
 /*
 1) заходит массив чисел
 2) к КАЖДОМУ из этих чисел применяетя фильтр (1 массив копия)
@@ -51,24 +50,24 @@ let oddOnesOut = nums => nums.filter(n => nums.filter(x => x === n).length % 2 =
 
 //top
 
-function oddOnesOut(a) {
-    let d = a.reduce((x, y) => (x[y] = (x[y] || 0) + 1, x), {});
-    return a.filter(x => d[x] % 2 === 0);
+function oddOnesOut1(a: number[]): number[] {
+  let d = a.reduce((x, y) => ((x[y] = (x[y] || 0) + 1), x), {});
+  return a.filter(x => d[x] % 2 === 0);
 }
 
 //top2
 
-function oddOnesOut(nums) {
-    return nums.filter(n => nums.filter(x => x === n).length % 2 === 0);
+function oddOnesOut2(nums: N[]): N[] {
+  return nums.filter(n => nums.filter(x => x === n).length % 2 === 0);
 } //(то же самое длиннее)
 
 //strange method
-const oddOnesOut = (nums) => {
-    let obj = {};
-    for (let i = 0; i < nums.length; i++) {
-        !obj[nums[i]] ? obj[nums[i]] = 1 : obj[nums[i]] += 1;
-    }
-    return nums.filter((num) => {
-        return obj[num] % 2 === 0;
-    })
+const oddOnesOut3 = (nums: N[]): N[] => {
+  let obj = {};
+  for (let i = 0; i < nums.length; i++) {
+    !obj[nums[i]] ? (obj[nums[i]] = 1) : (obj[nums[i]] += 1);
+  }
+  return nums.filter(num => {
+    return obj[num] % 2 === 0;
+  });
 };

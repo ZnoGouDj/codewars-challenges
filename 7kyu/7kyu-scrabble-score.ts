@@ -32,7 +32,6 @@
 // scrabbleScore('') // => 0
 // scrabbleScore('ca bba g  e') // => 14
 
-
 // Test.it( "returns 0 for ''", function(){ Test.assertEquals(scrabbleScore(""), 0) });
 // Test.it( 'returns 1 for a', function(){ Test.assertEquals(scrabbleScore('a'), 1) });
 // Test.it( 'returns 6 for street', function(){ Test.assertEquals(scrabbleScore("street"), 6) });
@@ -40,29 +39,48 @@
 // Test.it( 'returns score of " a" (with space)', function(){ Test.assertEquals(scrabbleScore(' a'), 1) });
 // Test.it( 'returns 6 for street with whitespaces', function(){ Test.assertEquals(scrabbleScore("st re et"), 6) });
 
-function scrabbleScore(str) {
-    const one = 'AEIOULNRST';
-    const two = 'DG';
-    const three = 'BCMP';
-    const four = 'FHVWY';
-    const five = 'K';
-    const eight = 'JX';
-    const ten = 'QZ';
-    const wordApart = str.toUpperCase().split('');
-    let counter = 0;
-    wordApart.forEach(element => {
-        if (one.indexOf(element) > -1) { counter++; }
-        if (two.indexOf(element) > -1) { counter += 2; }
-        if (three.indexOf(element) > -1) { counter += 3; }
-        if (four.indexOf(element) > -1) { counter += 4; }
-        if (five.indexOf(element) > -1) { counter += 5; }
-        if (eight.indexOf(element) > -1) { counter += 8; }
-        if (ten.indexOf(element) > -1) { counter += 10; }
-    });
-    return counter;
+function scrabbleScore(str: string): N {
+  const one = 'AEIOULNRST';
+  const two = 'DG';
+  const three = 'BCMP';
+  const four = 'FHVWY';
+  const five = 'K';
+  const eight = 'JX';
+  const ten = 'QZ';
+  const wordApart = str.toUpperCase().split('');
+  let counter = 0;
+  wordApart.forEach(element => {
+    if (one.indexOf(element) > -1) {
+      counter++;
+    }
+    if (two.indexOf(element) > -1) {
+      counter += 2;
+    }
+    if (three.indexOf(element) > -1) {
+      counter += 3;
+    }
+    if (four.indexOf(element) > -1) {
+      counter += 4;
+    }
+    if (five.indexOf(element) > -1) {
+      counter += 5;
+    }
+    if (eight.indexOf(element) > -1) {
+      counter += 8;
+    }
+    if (ten.indexOf(element) > -1) {
+      counter += 10;
+    }
+  });
+  return counter;
 }
 
 //top
-function scrabbleScore(str) {
-    return str.toUpperCase().split('').reduce(function (score, v) { return score + ($dict[v] || 0) }, 0)
-}
+// function scrabbleScore1(str: string): N {
+//   return str
+//     .toUpperCase()
+//     .split('')
+//     .reduce(function (score, v) {
+//       return score + ($dict[v] || 0);
+//     }, 0);
+// }

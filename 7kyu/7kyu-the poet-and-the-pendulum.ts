@@ -4,29 +4,29 @@
 // Beautiful musical notes are the Numbers
 
 // Task
-// Given an array/list [] of n integers , Arrange them in a way similar 
+// Given an array/list [] of n integers , Arrange them in a way similar
 // to the to-and-fro movement of a Pendulum
 
-// The Smallest element of the list of integers , 
+// The Smallest element of the list of integers ,
 // must come in center position of array/list.
 
 // The Higher than smallest , goes to the right .
-// The Next higher number goes to the left of minimum 
+// The Next higher number goes to the left of minimum
 // number and So on , in a to-and-fro manner similar to that of a Pendulum.
 
 // Notes
 // Array/list size is at least *3*** .
 
-// In Even array size , The minimum element should be moved 
+// In Even array size , The minimum element should be moved
 // to (n-1)/2 index (considering that indexes start from 0)
 
-// Repetition of numbers in the array/list could occur , 
+// Repetition of numbers in the array/list could occur ,
 // So (duplications are included when Arranging).
 
 // Input >> Output Examples:
 // pendulum ([6, 6, 8 ,5 ,10]) ==> [10, 6, 5, 6, 8]
 // Explanation:
-// Since , 5 is the The Smallest element of the list of integers , 
+// Since , 5 is the The Smallest element of the list of integers ,
 // came in The center position of array/list
 
 // The Higher than smallest is 6 goes to the right of 5 .
@@ -37,47 +37,44 @@
 
 // pendulum ([-9, -2, -10, -6]) ==> [-6, -10, -9, -2]
 // Explanation:
-// Since , -10 is the The Smallest element of the list of integers , 
+// Since , -10 is the The Smallest element of the list of integers ,
 // came in The center position of array/list
 
 // The Higher than smallest is -9 goes to the right of it .
 
 // The Next higher number goes to the left of -10 , and So on .
 
-// Remeber , In Even array size , The minimum element moved to 
+// Remeber , In Even array size , The minimum element moved to
 // (n-1)/2 index (considering that indexes start from 0) .
 
 // pendulum ([11, -16, -18, 13, -11, -12, 3, 18 ]) ==> [13, 3, -12, -18, -16, -11, 11, 18]
 // Explanation:
-// Since , -18 is the The Smallest element of the list of integers , 
+// Since , -18 is the The Smallest element of the list of integers ,
 // came in The center position of array/list
 
 // The Higher than smallest is -16 goes to the right of it .
 
 // The Next higher number goes to the left of -18 , and So on .
 
-// Remember , In Even array size , The minimum element moved to 
+// Remember , In Even array size , The minimum element moved to
 // (n-1)/2 index (considering that indexes start from 0) .
 
-function pendulum(values) {
+function pendulum(values: N[]): N[] {
+  let sort = values.slice().sort((a, b) => a - b),
+    parts = { left: [], right: [] };
 
-    let sort = values.slice().sort((a, b) => a - b)
-        , parts = { left: [], right: [] };
+  for (let i = 0; i < sort.length; i++) parts[i % 2 ? 'right' : 'left'].push(sort[i]);
 
-    for (let i = 0; i < sort.length; i++)
-        parts[i % 2 ? 'right' : 'left'].push(sort[i]);
-
-    return parts.left.reverse().concat(parts.right);
-
+  return parts.left.reverse().concat(parts.right);
 }
 
 //top2
 
-const pendulum = values => {
-    const arrSort = values.sort((a, b) => a - b)
-    const result = []
-    for (let i = 0; i < values.length; i++) {
-        i % 2 === 0 ? result.unshift(arrSort[i]) : result.push(arrSort[i])
-    }
-    return result;
-}
+const pendulum1 = (values: N[]): N[] => {
+  const arrSort = values.sort((a, b) => a - b);
+  const result = [];
+  for (let i = 0; i < values.length; i++) {
+    i % 2 === 0 ? result.unshift(arrSort[i]) : result.push(arrSort[i]);
+  }
+  return result;
+};

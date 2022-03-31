@@ -11,6 +11,6 @@
 // rowSumOddNumbers(1); // 1
 // rowSumOddNumbers(2); // 3 + 5 = 8
 
-function rowSumOddNumbers(n) {
-	return Math.pow(n, 3);
+function rowSumOddNumbers(n: N): N {
+  return Math.pow(n, 3);
 }
