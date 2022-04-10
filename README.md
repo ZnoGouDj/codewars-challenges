@@ -1,1 +1,1 @@
-# Count_by_x
+# Solved codewars kata collection
