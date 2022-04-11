@@ -1,1 +1,1 @@
-# Solved codewars kata collection
+# Solved codewars kata collection.
