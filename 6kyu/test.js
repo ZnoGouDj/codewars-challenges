@@ -1,19 +1,18 @@
-const stockList = (listOfArt, listOfCat) => {
-  const obj = listOfCat.reduce((a, v) => ({ ...a, [v]: 0 }), {}); // { A: 0, B: 0, C: 0, D: 0 }
-
-  for (let i = 0; i < listOfArt.length; i++) {
-    obj[listOfArt[i][0]] += +listOfArt[i].split(' ')[1];
-  }
-
-  let str = '';
-
-  for (var key in obj) {
-    if (obj.hasOwnProperty(key)) {
-      str += `(${key} : ${obj[key]}) - `;
+const step = (g, m, n) => {
+  for (let i = m; i <= n; i++) {
+    if (isPrime(i) && isPrime(i + g)) {
+      return [i, i + g];
     }
   }
-
-  return str.substring(0, str.length - 3);
 };
 
-console.log(stockList(['BBAR 150', 'CDXE 515', 'BKWR 250', 'BTSQ 890', 'DRTY 600'], ['A', 'B', 'C', 'D'])); // "(A : 0) - (B : 1290) - (C : 515) - (D : 600)";
+const isPrime = num => {
+  for (let i = 2, s = Math.sqrt(num); i <= s; i++) if (num % i === 0) return false;
+  return num > 1;
+};
+
+console.log(step(2, 100, 110)); // [101, 103]
+console.log(step(4, 100, 110)); // [103, 107]
+console.log(step(6, 100, 110)); // [101, 107]
+console.log(step(8, 300, 400)); // [359, 367]
+console.log(step(10, 300, 400)); // [307, 317]
