@@ -1,18 +1,16 @@
-const step = (g, m, n) => {
-  for (let i = m; i <= n; i++) {
-    if (isPrime(i) && isPrime(i + g)) {
-      return [i, i + g];
+function longestConsec(strarr, k) {
+  let longest = '';
+
+  for (let i = 0; i <= strarr.length - k; i++) {
+    let localLongest1 = strarr.slice(i, i + k).join('');
+    if (localLongest1.length > longest.length) {
+      longest = localLongest1;
     }
   }
-};
 
-const isPrime = num => {
-  for (let i = 2, s = Math.sqrt(num); i <= s; i++) if (num % i === 0) return false;
-  return num > 1;
-};
+  return longest;
+}
 
-console.log(step(2, 100, 110)); // [101, 103]
-console.log(step(4, 100, 110)); // [103, 107]
-console.log(step(6, 100, 110)); // [101, 107]
-console.log(step(8, 300, 400)); // [359, 367]
-console.log(step(10, 300, 400)); // [307, 317]
+console.log(longestConsec(['zone', 'abigail', 'theta', 'form', 'libe', 'zas'], 2)); // "abigailtheta"
+console.log(longestConsec(['ejjjjmmtthh', 'zxxuueeg', 'aanlljrrrxx', 'dqqqaaabbb', 'oocccffuucccjjjkkkjyyyeehh'], 1)); // "oocccffuucccjjjkkkjyyyeehh"
+console.log(longestConsec(['it', 'wkppv', 'ixoyx', '3452', 'zzzzzzzzzzzz'], 3)); // "ixoyx3452zzzzzzzzzzzz"
