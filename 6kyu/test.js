@@ -1,16 +1,17 @@
-function longestConsec(strarr, k) {
-  let longest = '';
+function solution(number) {
+  let sum = 0;
 
-  for (let i = 0; i <= strarr.length - k; i++) {
-    let localLongest1 = strarr.slice(i, i + k).join('');
-    if (localLongest1.length > longest.length) {
-      longest = localLongest1;
+  for (let i = 3; i < number; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      sum += i;
+    } else if (i % 3 === 0) {
+      sum += i;
+    } else if (i % 5 === 0) {
+      sum += i;
     }
   }
 
-  return longest;
+  return sum;
 }
 
-console.log(longestConsec(['zone', 'abigail', 'theta', 'form', 'libe', 'zas'], 2)); // "abigailtheta"
-console.log(longestConsec(['ejjjjmmtthh', 'zxxuueeg', 'aanlljrrrxx', 'dqqqaaabbb', 'oocccffuucccjjjkkkjyyyeehh'], 1)); // "oocccffuucccjjjkkkjyyyeehh"
-console.log(longestConsec(['it', 'wkppv', 'ixoyx', '3452', 'zzzzzzzzzzzz'], 3)); // "ixoyx3452zzzzzzzzzzzz"
+console.log(solution(10)); // 23
