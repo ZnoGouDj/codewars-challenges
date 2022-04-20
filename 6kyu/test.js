@@ -1,30 +1,20 @@
-function tribonacci([a, b, c], n) {
-  let arr = Array(n);
-  arr[0] = a;
-  arr[1] = b;
-  arr[2] = c;
+function sortTheInnerContent(words) {
+  let arr = words.split(' ');
+  let result = [];
 
-  if (n < 3) return [a, b, c].slice(0, n);
+  for (let i = 0; i < arr.length; i++) {
+    let firstLetter = arr[i].substring(0, 1);
+    let lastLetter = arr[i].substring(arr[i].length - 1, arr[i].length);
+    let middleToSort = arr[i].substring(1, arr[i].length - 1).split('');
 
-  for (let i = 3; i < arr.length; i++) {
-    arr[i] = arr[i - 3] + arr[i - 2] + arr[i - 1];
+    middleToSort.sort().reverse();
+
+    result.push(firstLetter + middleToSort.join('') + lastLetter);
   }
 
-  return arr;
+  return result;
 }
 
-// console.log(tribonacci([1, 1, 1], 10)); // [1, 1, 1, 3, 5, 9, 17, 31, 57, 105]
-// console.log(tribonacci([0, 0, 1], 10)); // [0, 0, 1, 1, 2, 4, 7, 13, 24, 44]
-// console.log(tribonacci([0, 1, 1], 10)); // [0, 1, 1, 2, 4, 7, 13, 24, 44, 81]
-// console.log(tribonacci([1, 0, 0], 10)); // [1, 0, 0, 1, 1, 2, 4, 7, 13, 24]
-// console.log(tribonacci([0, 0, 0], 10)); // [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-// console.log(tribonacci([1, 2, 3], 10)); // [1, 2, 3, 6, 11, 20, 37, 68, 125, 230]
-// console.log(tribonacci([3, 2, 1], 10)); // [3, 2, 1, 6, 9, 16, 31, 56, 103, 190]
-// console.log(tribonacci([1, 1, 1], 1)); // [1]
-// console.log(tribonacci([300, 200, 100], 0)); // []
-// console.log(tribonacci([0.5, 0.5, 0.5], 30));
-/*[
-    0.5, 0.5, 0.5, 1.5, 2.5, 4.5, 8.5, 15.5, 28.5, 52.5, 96.5, 177.5, 326.5, 600.5, 1104.5, 2031.5, 3736.5, 6872.5,
-    12640.5, 23249.5, 42762.5, 78652.5, 144664.5, 266079.5, 489396.5, 900140.5, 1655616.5, 3045153.5, 5600910.5,
-    10301680.5,
-  ]*/
+console.log(sortTheInnerContent('sort the inner content in descending order')); //'srot the inner ctonnet in dsnnieedcg oredr'
+console.log(sortTheInnerContent('wait for me')); // 'wiat for me'
+console.log(sortTheInnerContent('this kata is easy')); // 'tihs ktaa is esay'
