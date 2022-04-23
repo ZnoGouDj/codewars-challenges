@@ -1,33 +1,37 @@
-function order(words) {
-  // if (!words) return '';
-  let arr = words.split(' ');
+const isSumOfCubes = s => {
+  let arr = s.split(/[^0-9]/).filter(el => el);
   let result = [];
 
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i].includes('1')) {
-      result[0] = arr[i];
-    } else if (arr[i].includes('2')) {
-      result[1] = arr[i];
-    } else if (arr[i].includes('3')) {
-      result[2] = arr[i];
-    } else if (arr[i].includes('4')) {
-      result[3] = arr[i];
-    } else if (arr[i].includes('5')) {
-      result[4] = arr[i];
-    } else if (arr[i].includes('6')) {
-      result[5] = arr[i];
-    } else if (arr[i].includes('7')) {
-      result[6] = arr[i];
-    } else if (arr[i].includes('8')) {
-      result[7] = arr[i];
-    } else if (arr[i].includes('9')) {
-      result[8] = arr[i];
+    if (arr[i].length < 4) {
+      isCubic(arr[i]) ? result.push(arr[i]) : null;
+    } else {
+      let split = arr[i].match(/.{1,3}/g);
+      for (let i = 0; i < split.length; i++) {
+        isCubic(split[i]) ? result.push(split[i]) : null;
+      }
     }
   }
 
-  return result.join(' ');
-}
+  let sum = result.reduce((acc, val) => +acc + +val, 0);
+  result.push(sum);
 
-console.log(order('is2 Thi1s T4est 3a')); // "Thi1s is2 3a T4est"
-console.log(order('4of Fo1r pe6ople g3ood th5e the2')); // "Fo1r the2 g3ood 4of th5e pe6ople"
-console.log(order('')); // ""
+  return result;
+};
+
+const isCubic = n => {
+  let split = String(n).split('');
+  let sum = 0;
+  split.forEach(el => {
+    sum += Math.pow(el, 3);
+  });
+  return sum == n;
+};
+
+console.log(isSumOfCubes('Once upon a midnight dreary, while100 I pondered, 9026315weak and weary -827&()')); // "Unlucky"
+console.log(isSumOfCubes('&z371 upon 407298a --- dreary, ###100.153 I thought, 9926315strong and weary -127&() 1')); // "371 407 153 1 932 Lucky"
+
+// console.log(isCubic(153)); //true
+// console.log(isCubic(1)); //true
+// console.log(isCubic(0)); //true
+// console.log(isCubic(22)); // false
