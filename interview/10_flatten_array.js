@@ -19,4 +19,19 @@ function flatten1(array) {
   return res;
 }
 
-console.log(flatten1([[1], [[2, 3]], [[[4]]]])); // -> [1, 2, 3, 4
+//! top
+
+function flatten2(arr) {
+  let result = [];
+
+  arr.forEach(el => {
+    if (Array.isArray(el)) {
+      result = [...result, ...flatten2(el)];
+    } else {
+      result = [...result, el];
+    }
+  });
+  return result;
+}
+
+console.log(flatten2([[1], [[2, 3]], [[[4]]]])); // -> [1, 2, 3, 4]
