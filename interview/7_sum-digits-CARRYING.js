@@ -12,13 +12,12 @@ result log
 
 */
 
-function sum(n) {
+function sum(n = 0) {
   console.log(n);
-  return function (m) {
+  return function (m = 0) {
     return sum(n + m);
   };
 }
 
 sum(5);
-console.log('-------');
 sum(5)(4)(11)(30);
