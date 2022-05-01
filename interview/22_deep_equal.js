@@ -1,5 +1,34 @@
 function deepEqual(a, b) {
-  // todo
+  const aString = JSON.stringify(a);
+  const bString = JSON.stringify(b);
+
+  return aString === bString;
+}
+
+function deepEqual(a, b) {
+  if (Number.isNaN(a) && Number.isNaN(b)) {
+    return true;
+  }
+
+  if (typeof a !== typeof b) {
+    return false;
+  }
+
+  if (typeof a !== 'object' || a === null || b === null) {
+    return a === b;
+  }
+
+  if (Object.keys(a).length !== Object.keys(b).length) {
+    return false;
+  }
+
+  for (const key of Object.keys(a)) {
+    if (!deepEqual(a[key], b[key])) {
+      return false;
+    }
+  }
+
+  return true;
 }
 
 const source = { a: 1, b: { c: 1 } };
