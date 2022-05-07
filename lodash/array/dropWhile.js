@@ -1,4 +1,29 @@
-function dropWhile(array, predicate) {}
+function dropWhile(array, predicate) {
+  let counter = 0;
+
+  if (typeof predicate === 'function') {
+    for (let i = 0; i < array.length; i++) {
+      if (predicate(array[i])) {
+        counter++;
+      } else {
+        break;
+      }
+    }
+  } else if (typeof predicate === 'object') {
+    let resultLocal = [...array].map(el => JSON.stringify(el));
+    let predicateLocal = Array.isArray(predicate) ? predicate.join('":') : JSON.stringify(predicate);
+
+    for (let i = 0; i < resultLocal.length; i++) {
+      if (resultLocal[i].includes(predicateLocal)) {
+        counter++;
+      } else {
+        break;
+      }
+    }
+  }
+
+  return array.slice(counter, array.length);
+}
 
 // Creates a slice of array excluding elements dropped from the beginning.
 // Elements are dropped until predicate returns falsey.

@@ -1,19 +1,6 @@
 function dropRightWhile(users, predicate) {
   let result = [...users];
 
-  if (Array.isArray(predicate)) {
-    let resultLocal = [...users].map(el => JSON.stringify(el));
-    let predicateLocal = predicate.join('":');
-
-    for (let i = resultLocal.length - 1; i > -1; i--) {
-      if (resultLocal[i].includes(predicateLocal)) {
-        result.pop();
-      } else {
-        return result;
-      }
-    }
-  }
-
   if (typeof predicate === 'function') {
     for (let i = users.length - 1; i > -1; i--) {
       if (predicate(users[i])) {
@@ -26,10 +13,10 @@ function dropRightWhile(users, predicate) {
 
   if (typeof predicate === 'object') {
     let resultLocal = [...users].map(el => JSON.stringify(el));
-    let predicateLocal = JSON.stringify(predicate);
+    let predicateLocal = Array.isArray(predicate) ? predicate.join('":') : JSON.stringify(predicate);
 
     for (let i = resultLocal.length - 1; i > -1; i--) {
-      if (predicateLocal === resultLocal[i]) {
+      if (resultLocal[i].includes(predicateLocal)) {
         result.pop();
       } else {
         return result;
