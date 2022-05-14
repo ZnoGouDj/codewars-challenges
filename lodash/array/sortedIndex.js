@@ -11,5 +11,6 @@ function sortedIndex(array, value) {
 }
 // Uses a binary search to determine the lowest index at which value should be
 // inserted into array in order to maintain its sort order.
+//! no binary search sorry
 
 console.log(sortedIndex([30, 50], 40)); // => 1
