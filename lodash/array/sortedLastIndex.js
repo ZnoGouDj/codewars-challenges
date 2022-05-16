@@ -19,7 +19,6 @@ function sortedLastIndex(array, value) {
       for (let i = mid; i < array.length; i++) {
         if (array[i] !== value) return i;
       }
-      return mid;
     } else if (array[mid] < value) {
       end = mid + 1;
     } else if (array[mid] > value) {
