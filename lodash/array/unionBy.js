@@ -26,7 +26,6 @@ function unionBy(arr1, arr2, iteratee) {
     }
   }
   return joinedArrays;
-  return Object.values(result);
 }
 
 console.log(unionBy([2.1], [1.2, 2.3], Math.floor)); // => [2.1, 1.2]
