@@ -1,26 +1,34 @@
 function xor(...arrays) {
   let result = [];
-  let obj = {
-    include: [],
-    noInclude: [],
-  };
-  let maxArrLength = Math.max(...arrays.map(el => el.length));
-  let count = 0;
+  let maxLength = Math.max(...arrays.map(arr => arr.length));
 
-  while (count < maxArrLength) {
-    for (let i = 0; i < arrays.length; i++) {
-      // if (obj.hasOwnProperty(arrays[i][count])) obj[arrays[i][count]] = 'do not include';
-      // else obj[arrays[i][count]] = 'include';
-      // if (obj.include.indexOf(arrays[i][count])) {
-      // }
-    }
-    count++;
-    for (let i in obj) {
-      if (obj[i] === 'include') {
-        result.push(i);
+  for (let i = 0; i < maxLength; i++) {
+    let array = [];
+    for (let j = 0; j < arrays.length; j++) {
+      if (arrays[j][i] !== undefined) {
+        array.push(arrays[j][i]);
       }
     }
-    obj = {};
+    result.push([...array]);
+    array.length = 0;
+  }
+
+  let joinArrays = result.reduce((acc, val) => acc.concat(val), []);
+  result.length = 0;
+
+  let obj = {};
+
+  for (let i = 0; i < joinArrays.length; i++) {
+    if (!obj[joinArrays[i]]) {
+      result.push(joinArrays[i]);
+      obj[joinArrays[i]] = 'occupied';
+    } else {
+      for (let j = 0; j < result.length; j++) {
+        if (result[j] === joinArrays[i]) {
+          result.splice(j, 1);
+        }
+      }
+    }
   }
 
   return result;
