@@ -1,15 +1,26 @@
 function groupBy(collection, iteratee) {
   let result = {};
 
-  switch (typeof iteratee) {
-    case 'function':
-      //
-      break;
-    case 'string':
-      //
-      break;
-    default:
-      return collection;
+  for (let i = 0; i < collection.length; i++) {
+    let el = collection[i];
+    switch (typeof iteratee) {
+      case 'function':
+        if (!result[iteratee(el)]) {
+          result[iteratee(el)] = [el];
+        } else {
+          result[iteratee(el)].push(el);
+        }
+        break;
+      case 'string':
+        if (!result[el[iteratee]]) {
+          result[el[iteratee]] = [el];
+        } else {
+          result[el[iteratee]].push(el);
+        }
+        break;
+      default:
+        return collection;
+    }
   }
 
   return result;
