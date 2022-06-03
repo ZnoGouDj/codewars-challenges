@@ -1,6 +1,14 @@
 function includes(collection, value, fromIndex = 0) {
   let valueLength = value.length || 1;
 
+  if (typeof fromIndex !== 'number') {
+    fromIndex = 0;
+  }
+
+  if (fromIndex + valueLength > collection.length) {
+    return false;
+  }
+
   if (typeof collection === 'object' && !Array.isArray(collection)) {
     for (let key in collection) {
       if (collection[key] === value) {
