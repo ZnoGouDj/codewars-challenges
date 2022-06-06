@@ -1,15 +1,9 @@
 function reduceRight(collection, iteratee, accumulator) {
   let result = accumulator;
 
-  if (Array.isArray(collection)) {
-    for (let i = collection.length - 1; i >= 0; i--) {
-      result = iteratee(result, collection[i]);
-    }
-  } else {
-    let reverseCollection = collection.reverse();
-    for (let key in reverseCollection) {
-      result = iteratee(result, collection[key], key);
-    }
+  let reverseCollection = collection.reverse();
+  for (let key in reverseCollection) {
+    result = iteratee(result, collection[key], key);
   }
 
   return result;
