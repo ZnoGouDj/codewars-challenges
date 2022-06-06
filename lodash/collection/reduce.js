@@ -1,18 +1,8 @@
 function reduce(collection, iteratee, accumulator) {
   let result = accumulator;
 
-  if (Array.isArray(collection)) {
-    for (let i = 0; i < collection.length; i++) {
-      if (typeof result === 'number') {
-        result = iteratee(result, collection[i]);
-      }
-    }
-  } else {
-    for (let key in collection) {
-      if (typeof result === 'object') {
-        result = iteratee(result, collection[key], key);
-      }
-    }
+  for (let key in collection) {
+    result = iteratee(result, collection[key], key);
   }
 
   return result;
