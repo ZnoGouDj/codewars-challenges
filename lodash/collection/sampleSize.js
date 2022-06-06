@@ -18,3 +18,5 @@ function sampleSize(collection, n = 1) {
 console.log(sampleSize([1, 2, 3], 2)); // => [3, 1]
 
 console.log(sampleSize([1, 2, 3], 4)); // => [2, 3, 1]
+
+console.log(sampleSize({ John: 32, Mary: 28, Jane: 54 }, 2));
