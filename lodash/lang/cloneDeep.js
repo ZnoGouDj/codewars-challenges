@@ -12,8 +12,6 @@ function cloneDeep(value) {
         if (typeof el[key] === 'object') {
           let temp = cloneDeep(el[key]);
           obj[key] = temp;
-          console.log('el ', el[key]);
-          console.log('temp ', temp);
         } else {
           obj[key] = el[key];
         }
