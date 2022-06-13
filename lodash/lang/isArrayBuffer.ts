@@ -1,4 +1,4 @@
-function isArrayBuffer(value) {
+function isArrayBuffer(value: any): Boolean {
   return value && value.byteLength !== undefined && !(value.buffer instanceof ArrayBuffer);
 }
 
