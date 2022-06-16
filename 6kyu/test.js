@@ -1,17 +1,8 @@
-function findOutlier(integers) {
-  let isOdd = integers.slice(0, 3).filter(el => el % 2 === 0).length >= 2;
-  let find = num => (isOdd ? num % 2 !== 0 : num % 2 === 0);
-
-  for (let i = 0; i < integers.length; i++) {
-    let el = integers[i];
-    if (find(el)) {
-      return el;
-    }
-  }
+function digPow(n, p) {
+  let sum = [...String(n)].reduce((acc, val, index) => acc + Math.pow(val, index + p), 0);
+  return sum % n === 0 ? sum / n : -1;
 }
 
-console.log(findOutlier([0, 1, 2])); // =>  1
-console.log(findOutlier([1, 2, 3])); // =>  2
-console.log(findOutlier([2, 6, 8, 10, 3])); // =>  3
-console.log(findOutlier([0, 0, 3, 0, 0])); // =>  3
-console.log(findOutlier([1, 1, 0, 1, 1])); // =>  0
+console.log(digPow(89, 1)); // => 1
+console.log(digPow(92, 1)); // => -1
+console.log(digPow(46288, 3)); // => 51
