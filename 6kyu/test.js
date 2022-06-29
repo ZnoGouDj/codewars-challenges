@@ -1,22 +1,14 @@
-// function parse(data) {
-//   const result = [];
+console.log(findMissing([-10, -15, -20, -30, -35, -40, -45, -50, -55])); // => -25
 
-//   const commands = {
-//     i: () => val++,
-//     d: () => val--,
-//     s: () => (val = Math.pow(val, 2)),
-//     o: () => result.push(val),
-//   };
+// console.log(findMissing([1, 3, 4])); // => 2
+// console.log(findMissing([1, 11, 16])); // => 6
+// console.log(findMissing([1, 19, 28])); // => 10
+// console.log(findMissing([1, 17, 25])); // => 9
 
-//   let val = 0;
+// console.log(findMissing([1, 3, 5, 9, 11])); // => 7
 
-//   for (let i = 0; i < data.length; i++) {
-//     let fn = commands[data[i]];
-//     if (typeof fn === 'function') fn();
-//   }
+// console.log(findMissing([2, 6, 14])); // => 10
 
-//   return result;
-// }
+// console.log(findMissing([15, 33, 42, 51])); // => 24
 
-// console.log(parse('iiisdoso')); // => [ 8, 64 ]
-// console.log(parse('iiisxxxdoso')); // => [ 8, 64 ]
+console.log(findMissing([8, -16, -28])); // => -4 but got -40
