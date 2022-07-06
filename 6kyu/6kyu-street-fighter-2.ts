@@ -1,4 +1,6 @@
-function streetFighterSelection(fighters, position, moves) {
+type Move = 'down' | 'up' | 'right' | 'left';
+
+export function streetFighterSelection(fighters: string[][], position: number[], moves: Move[]) {
   let result = [];
   let initX = position[0];
   let initY = position[1];
@@ -12,7 +14,6 @@ function streetFighterSelection(fighters, position, moves) {
       if (initX + 1 <= 1) {
         initX++;
       }
-      initX++;
     } else if (moves[i] === 'left') {
       if (initY - 1 < 0) {
         initY = fighters[0].length - 1;
@@ -31,12 +32,3 @@ function streetFighterSelection(fighters, position, moves) {
 
   return result;
 }
-
-let fighters = [
-  ['Ryu', 'E.Honda', 'Blanka', 'Guile', 'Balrog', 'Vega'],
-  ['Ken', 'Chun Li', 'Zangief', 'Dhalsim', 'Sagat', 'M.Bison'],
-];
-let initial_position = [0, 0];
-let moves = ['up', 'left', 'right', 'left', 'left'];
-
-console.log(streetFighterSelection(fighters, initial_position, moves)); // => ['Ryu', 'Vega', 'Ryu', 'Vega', 'Balrog'];
