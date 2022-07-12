@@ -142,20 +142,34 @@ function generateTestCase(idx) {
   return [idx, playsSoFar];
 }
 
+// describe('getCurrentHand', () => {
+//   _.chain(range(RANDOM_TEST_CASE_COUNT))
+//     .map(generateTestCase)
+//     .forEach(([testCaseIndex, testCase]) => {
+//       it(`Random test ${testCaseIndex + 1}`, () => {
+//         const actualTestCase = [...testCase];
+//         const actual = getCurrentHand(actualTestCase);
+//         console.log('actual ', actual);
+
+//         const expectedTestCase = [...testCase];
+//         const expected = getExpectedResult(expectedTestCase);
+//         console.log('expected ', expected);
+
+//         assert.deepEqual(new Set(actual), new Set(expected));
+//       });
+//     })
+//     .value();
+// });
+
 describe('getCurrentHand', () => {
   _.chain(range(RANDOM_TEST_CASE_COUNT))
     .map(generateTestCase)
     .forEach(([testCaseIndex, testCase]) => {
       it(`Random test ${testCaseIndex + 1}`, () => {
-        const actualTestCase = [...testCase];
-        const actual = getCurrentHand(actualTestCase);
-        console.log('actual ', actual);
+        const actual = getCurrentHand([...testCase]);
+        const expected = getExpectedResult(testCase);
 
-        const expectedTestCase = [...testCase];
-        const expected = getExpectedResult(expectedTestCase);
-        console.log('expected ', expected);
-
-        assert.deepEqual(new Set(actual), new Set(expected));
+        assert.equal(JSON.stringify(actual.sort()), JSON.stringify(expected.sort()));
       });
     })
     .value();
