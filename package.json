@@ -10,13 +10,15 @@
     "type": "git",
     "url": "git+https://github.com/ZnoGouDj/codewars-challenges.git"
   },
-  "author": "Znogoud",
+  "author": "ZnoGouD",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ZnoGouDj/codewars-challenges/issues"
   },
   "homepage": "https://github.com/ZnoGouDj/codewars-challenges#readme",
   "dependencies": {
-    "chai": "^4.3.6"
+    "buffer": "^6.0.3",
+    "chai": "^4.3.6",
+    "lodash": "^4.17.21"
   }
 }
