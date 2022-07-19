@@ -1,5 +1,5 @@
 function solution(str: string): string {
-  return '';
+  return [...str].reverse().join('');
 }
 
 /*
