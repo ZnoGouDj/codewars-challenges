@@ -1,6 +1,6 @@
 class SmallestIntegerFinder {
   findSmallestInt(args: number[]): number {
-    return 0;
+    return args.sort((a, b) => a - b)[0];
   }
 }
 
