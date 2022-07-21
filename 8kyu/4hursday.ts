@@ -1,7 +1,7 @@
 type N = number;
 
 function isDivisible(n: N, x: N, y: N): boolean {
-  return false;
+  return n % x === 0 && n % y === 0;
 }
 
 /*

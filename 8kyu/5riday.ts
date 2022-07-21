@@ -1,5 +1,5 @@
 function invert(array: number[]): number[] {
-  return [0];
+  return array.map(el => -el);
 }
 
 /*

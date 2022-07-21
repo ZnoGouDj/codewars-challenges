@@ -1,5 +1,5 @@
 function booleanToString(b: boolean): string {
-  return 'true';
+  return '' + b;
 }
 
 /*
