@@ -20,6 +20,8 @@ Person1.prototype.greet = function (yourName: string) {
   return 'Hello ' + yourName + ', my name is ' + this.name;
 };
 
+//?
+
 var joe = new Person('Joe');
 console.log(joe.greet('Kate'));
 console.log(joe.name);
