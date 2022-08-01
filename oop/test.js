@@ -1,6 +1,0 @@
-console.log((123).toString1()); // => '123'
-console.log(Math.PI.toString1()); // => '3.141592653589793'
-console.log(Math.E.toString1()); // => '2.718281828459045'
-console.log(true.toString1()); // => 'true'
-console.log(false.toString1()); // => 'false'
-console.log([1, 2, 3, 4, 5].toString1()); // => '[1,2,3,4,5]'
