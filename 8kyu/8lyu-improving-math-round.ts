@@ -1,8 +1,12 @@
-Math.roundTo = function (number, precision) {
+Math.roundTo = function (number: number, precision: number): number {
   return number.toFixed(precision) == Math.round(number)
     ? Math.round(number)
     : +number.toFixed(precision);
 };
+
+interface Test extends Math {
+  roundTo: () => number;
+}
 
 console.log(Math.roundTo(3.1415926535, 4)); // => 3.1416
 console.log(Math.roundTo(4, 5)); // => 4
