@@ -1,4 +1,7 @@
 class Animal {
+  _name: string;
+  _type: string;
+
   constructor(name, type) {
     this.name = name;
     this.type = type;
