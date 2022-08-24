@@ -24,31 +24,34 @@ function sortIt(obj) {
 
 console.log(sortIt(obj)); // 'Kirk, Bob, Mark'
 
-// 2) множественное наследование ебни классом или функцией
+// 2) множественное наследование сделай классом или функцией
 
 class Car {
-    // ...
+    constructor(mark = 'Audi') {
+        this.mark = mark;
+    }
+
     drive() {
-        console.log('Driving');
+        return 'Driving';
     }
 }
 
 class Boat {
-    // ...
+    constructor(mark = 'Honda') {
+        this.mark = mark;
+    }
+
     swim() {
-        console.log('Swimming');
+        return 'Swimming';
     }
 }
 
 function Amphibia(car, boat) {
-    this.car = car;
-    this.boar = boat;
-    //..
     return {
-        car: () => {
+        drive: () => {
             return car.drive();
         },
-        boat: () => {
+        swim: () => {
             return boat.swim();
         },
     };
@@ -56,31 +59,31 @@ function Amphibia(car, boat) {
 
 const amf = Amphibia(new Car(), new Boat());
 
-amf.drive();
-amf.swim();
+console.log(amf.drive());
+console.log(amf.swim());
 
-// // 3) суммируй промисы
-// async function get_1() {
-//     return Promise.resolve(1);
-// } // 1
-// async function get_2() {
-//     return 2;
-// }
-// async function get_3() {
-//     return Promise.reject(3);
-// }
-// async function get_4() {
-//     throw 4;
-// }
+// 3) суммируй промисы
+async function get_1() {
+    return Promise.resolve(1);
+} // 1
+async function get_2() {
+    return 2;
+}
+async function get_3() {
+    return Promise.reject(3);
+}
+async function get_4() {
+    throw 4;
+}
 
-// const get1 = await get_1();
-// const get2 = await get_2();
-// const get3 = await get_3().catch(val => {
-//     return val;
-// });
-// const get4 = await get_4().catch(val => {
-//     return val;
-// });
+const get1 = await get_1();
+const get2 = await get_2();
+const get3 = await get_3().catch(val => {
+    return val;
+});
+const get4 = await get_4().catch(val => {
+    return val;
+});
 
-// let sum = get1 + get2 + get3 + get4;
-// console.log(sum); // 10
+let sum = get1 + get2 + get3 + get4;
+console.log(sum); // 10
