@@ -42,7 +42,7 @@ const iteration = tree => {
   if (!tree.length) {
     return 0;
   }
-  const stack = [];
+  const stack: any = [];
   let sum = 0;
   tree.forEach(node => {
     stack.push(node);
