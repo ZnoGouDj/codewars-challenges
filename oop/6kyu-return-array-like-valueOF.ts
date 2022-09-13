@@ -1,4 +1,5 @@
 class SortedArray extends Array {
+  dir: any;
   constructor(_dir) {
     super();
     const dir = {
