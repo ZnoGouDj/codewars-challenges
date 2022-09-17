@@ -14,17 +14,17 @@ Array.prototype.filter = function (fn, nThis) {
   //     if (fn.apply(nThis, [v, i, arr])) {
   //         newArr.push(v);
   //     }
-  // });
+  // }); (1)
   // for (let i = 0; i < this.length; i++) {
   //     if (fn.apply(nThis, [this[i], i, this])) {
   //         newArr.push(this[i]);
   //     }
-  // }
+  // } (2) doesn't work with length
   // for (let i in this) {
   //     if (fn.apply(nThis, [this[i], i, this])) {
   //         newArr.push(this[i]);
   //     }
-  // } doesn't work with length
+  // } (3) doesn't work with length
   return newArr;
 };
 
