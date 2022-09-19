@@ -11,8 +11,8 @@ Function.prototype.bind = function (obj) {
 Function.prototype.bind = function (ctx) {
   const that = this;
   return function (...args) {
-    const newContext = this === global ? ctx : this;
-    return that.apply(newContext, args);
+    const newCtx = this === global ? ctx : this;
+    return that.apply(newCtx, args);
   };
 };
 
