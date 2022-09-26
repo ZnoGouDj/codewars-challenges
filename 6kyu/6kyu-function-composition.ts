@@ -3,6 +3,14 @@ const compose =
   (...x) =>
     f(g(...x));
 
+//!
+
+function compose1(f, g) {
+  return function () {
+    return f(g.apply(this, arguments));
+  };
+}
+
 const add1 = function (a) {
   return a + 1;
 };
