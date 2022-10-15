@@ -1,5 +1,5 @@
 function divisors(integer: number): number[] | string {
-  const divisors = [];
+  const divisors:number[] = [];
 
   for (let i = 2; i < integer; i++) {
     if (integer % i === 0) {
